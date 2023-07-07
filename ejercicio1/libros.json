@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "64a858ad09435778a6a3915b"
+  },
+  "Nombre": "Cien años de Soledad",
+  "Paginas": "471",
+  "Tema": "Narracion",
+  "Tipo": "Novela",
+  "Formato": "Impreso"
+},{
+  "_id": {
+    "$oid": "64a858ad09435778a6a3915c"
+  },
+  "Nombre": "El Señor de Los Anillos",
+  "Paginas": "423",
+  "Tema": "Novela",
+  "Tipo": "Fantasia Heroica",
+  "Formato": "Fisico y Dijital"
+},{
+  "_id": {
+    "$oid": "64a858ad09435778a6a3915d"
+  },
+  "Nombre": "1984",
+  "Paginas": "326",
+  "Tema": "Derechos Humanos",
+  "Tipo": "Ciencia Ficcion",
+  "Formato": "Dijital y Fisico"
+},{
+  "_id": {
+    "$oid": "64a858ad09435778a6a3915e"
+  },
+  "Nombre": "Un mundo Feliz",
+  "Paginas": "256",
+  "Tema": "Distopia",
+  "Tipo": "Parodia",
+  "Formato": "Dijital y Fisica"
+},{
+  "_id": {
+    "$oid": "64a858ad09435778a6a3915f"
+  },
+  "Nombre": "Orgullo y Prejuicio",
+  "Paginas": "291",
+  "Tema": "Novela",
+  "Tipo": "Romantica",
+  "Formato": "Papel, Rustico, Cartoon y Digital"
+}]

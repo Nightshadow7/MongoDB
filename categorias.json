@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "64a7055fd08ae0544324ffd5"
+  },
+  "Nombre": "Frutas y Verduras",
+  "Descripcion": "Esta categoría incluye una amplia variedad de frutas frescas, verduras y hortalizas. Ofrece opciones saludables y nutritivas para una dieta equilibrada.",
+  "Imagen": "./Images/FrutasVerduras.png"
+},{
+  "_id": {
+    "$oid": "64a70b59d08ae0544324ffd7"
+  },
+  "Nombre": "Carnes y Pescados",
+  "Descripcion": "Aquí encontrarás carnes de res, pollo, cerdo, así como pescados y mariscos frescos y congelados. Esta categoría satisface las necesidades de los consumidores que buscan proteínas animales.",
+  "Imagen": "./Imagen/CarnesPescados.png"
+},{
+  "_id": {
+    "$oid": "64a70b59d08ae0544324ffd6"
+  },
+  "Nombre": "Congelados",
+  "Descripcion": "Esta categoría incluye alimentos congelados como verduras, pizzas, helados, comidas preparadas y más. Ofrece comodidad y una amplia gama de opciones para comidas rápidas.",
+  "Imagen": "./Imagen/Congelados.png"
+},{
+  "_id": {
+    "$oid": "64a70b59d08ae0544324ffd9"
+  },
+  "Nombre": "Panadería y Repostería",
+  "Descripcion": "Aquí encontrarás una variedad de panes frescos, pasteles, galletas y otros productos de panadería y repostería. Ideal para el desayuno, meriendas y ocasiones especiales.",
+  "Imagen": "./Imagen/PanaderiaReposteria.png"
+},{
+  "_id": {
+    "$oid": "64a70b59d08ae0544324ffd8"
+  },
+  "Nombre": "Lácteos y Huevos",
+  "Descripcion": "Incluye productos lácteos como leche, yogur, queso, mantequilla, así como huevos. Esencial para preparar recetas, desayunos y productos lácteos básicos.",
+  "Imagen": "./Imagen/Lacteoshuevos.png"
+},{
+  "_id": {
+    "$oid": "64a70b68d08ae0544324ffdb"
+  },
+  "Nombre": "Productos Enlatados",
+  "Descripcion": "Aquí encontrarás alimentos enlatados como sopas, vegetales y salsas.",
+  "Imagen": "./Imagen/Enlatados.png"
+},{
+  "_id": {
+    "$oid": "64a70b68d08ae0544324ffdd"
+  },
+  "Nombre": "Cuidado Personal",
+  "Descripcion": "Incluye productos para el cuidado personal como champú, jabón y pasta de dientes.",
+  "Imagen": "./Imagen/Personal.png"
+},{
+  "_id": {
+    "$oid": "64a70b68d08ae0544324ffdc"
+  },
+  "Nombre": "Alimentos Secos",
+  "Descripcion": "limentos secos como arroz, pasta, cereales y legumbres. Son alimentos de larga duración y básicos en despensas.",
+  "Imagen": "./Imagen/AlimentosSecos.png"
+},{
+  "_id": {
+    "$oid": "64a70b68d08ae0544324ffda"
+  },
+  "Nombre": "Bebidas",
+  "Descripcion": "Incluye una amplia selección de bebidas como agua, refrescos, jugos, té, café, cervezas, vinos y licores. Satisface las necesidades de hidratación y también ofrece opciones para ocasiones especiales.",
+  "Imagen": "./Imagen/Bebidas.png"
+},{
+  "_id": {
+    "$oid": "64a70b73d08ae0544324ffe1"
+  },
+  "Nombre": "Productos Internacionales",
+  "Descripcion": "Aquí encontrarás una selección de alimentos y productos de diferentes países y culturas, como ingredientes para cocina asiática, mexicana, italiana, entre otras.",
+  "Imagen": "./Imagen/ProductosInternaciones.png"
+},{
+  "_id": {
+    "$oid": "64a70b73d08ae0544324ffe0"
+  },
+  "Nombre": "Snacks",
+  "Descripcion": "Incluye una amplia gama de productos para picar como papas fritas, snacks salados, nueces, barras de granola, chocolates y caramelos.",
+  "Imagen": "./Imagen/Snacks.png"
+},{
+  "_id": {
+    "$oid": "64a70b73d08ae0544324ffde"
+  },
+  "Nombre": "Artículos de Limpieza",
+  "Descripcion": "artículos de limpieza para el hogar como detergentes, productos de limpieza y suministros.",
+  "Imagen": "./Imagen/Limpieza.png"
+},{
+  "_id": {
+    "$oid": "64a70b73d08ae0544324ffdf"
+  },
+  "Nombre": "Pastelería",
+  "Descripcion": "variedad de pasteles, tartas, muffins y productos de repostería frescos y deliciosos.",
+  "Imagen": "./Imagen/Pasteleria.png"
+},{
+  "_id": {
+    "$oid": "64a70b7bd08ae0544324ffe3"
+  },
+  "Nombre": "Productos para Mascotas",
+  "Descripcion": "Esta categoría se centra en ofrecer alimentos y productos para mascotas, como alimentos para perros y gatos, juguetes, artículos de higiene y accesorios para mascotas.",
+  "Imagen": "./Imagen/Mascotas.png"
+},{
+  "_id": {
+    "$oid": "64a70b7bd08ae0544324ffe4"
+  },
+  "Nombre": "Productos para Bebés",
+  "Descripcion": "Esta categoría ofrece productos para bebés y cuidado infantil, como pañales, alimentos para bebés, fórmulas infantiles, productos de higiene para bebés y accesorios para bebés.",
+  "Imagen": "./Imagen/Bebes.png"
+},{
+  "_id": {
+    "$oid": "64a70b7bd08ae0544324ffe2"
+  },
+  "Nombre": "Productos para el Hogar",
+  "Descripcion": "Incluye artículos como papel higiénico, toallas de papel, productos de limpieza para el hogar, detergentes, suavizantes de telas y otros suministros esenciales para el hogar.",
+  "Imagen": "./Imagen/Hogar.png"
+},{
+  "_id": {
+    "$oid": "64a70b7bd08ae0544324ffe5"
+  },
+  "Nombre": "Productos Orgánicos y Naturales",
+  "Descripcion": "Esta categoría se enfoca en ofrecer productos orgánicos y naturales, incluyendo frutas y verduras orgánicas, productos sin gluten, productos sin lactosa y alimentos saludables certificados.",
+  "Imagen": "./Imagen/OrganicosNaturales.png"
+}]

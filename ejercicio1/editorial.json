@@ -1,0 +1,41 @@
+[{
+  "_id": {
+    "$oid": "64a858f909435778a6a39160"
+  },
+  "Nombre": "Editorial Sudamericana",
+  "Inicio": "1939",
+  "Fundada": "Argentina",
+  "Sede Central": "Buenos Aires"
+},{
+  "_id": {
+    "$oid": "64a858f909435778a6a39161"
+  },
+  "Nombre": "Ediciones Minotauro",
+  "Inicio": "1955",
+  "Fundada": "España",
+  "Sede Central": "Barcelona"
+},{
+  "_id": {
+    "$oid": "64a858f909435778a6a39162"
+  },
+  "Nombre": "British Broadcasting Corporation",
+  "Inicio": "1922",
+  "Fundada": "Reino Unido",
+  "Sede Central": "Londres"
+},{
+  "_id": {
+    "$oid": "64a858f909435778a6a39163"
+  },
+  "Nombre": "CBS Radio, Inc.",
+  "Inicio": "1928",
+  "Fundada": "Estados Unidos",
+  "Sede Central": "Nueva York"
+},{
+  "_id": {
+    "$oid": "64a858f909435778a6a39164"
+  },
+  "Nombre": "Porrua",
+  "Inicio": "1900",
+  "Fundada": "Mexico",
+  "Sede Central": "Mexico"
+}]

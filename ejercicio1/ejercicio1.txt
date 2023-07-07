@@ -1,0 +1,113 @@
+use librerias
+
+db.libros
+db.editorial
+db.autor 
+
+
+db.libros.insertMany([
+  {
+    "Nombre" : "Cien años de Soledad",
+    "Paginas" : "471",
+    "Tema" : "Narracion",
+    "Tipo" : "Novela",
+    "Formato" : "Impreso"
+  } ,
+  {
+    "Nombre" : "El Señor de Los Anillos",
+    "Paginas" : "423",
+    "Tema" : "Novela",
+    "Tipo" : "Fantasia Heroica",
+    "Formato" : "Fisico y Dijital"
+  } ,
+  {
+    "Nombre" : "1984",
+    "Paginas" : "326",
+    "Tema" : "Derechos Humanos",
+    "Tipo" : "Ciencia Ficcion",
+    "Formato" : "Dijital y Fisico"
+  } ,
+  {
+    "Nombre" : "Un mundo Feliz",
+    "Paginas" : "256",
+    "Tema" : "Distopia",
+    "Tipo" : "Parodia",
+    "Formato" : "Dijital y Fisica"
+  } ,
+  {
+    "Nombre" : "Orgullo y Prejuicio",
+    "Paginas" : "291",
+    "Tema" : "Novela",
+    "Tipo" : "Romantica",
+    "Formato" : "Papel, Rustico, Cartoon y Digital"
+  }])
+
+db.editorial.insertMany([
+  {
+    "Nombre": "Editorial Sudamericana",
+    "Inicio" : "1939",
+    "Fundada" : "Argentina",
+    "Sede Central" : "Buenos Aires"
+  },
+  {
+    "Nombre": "Ediciones Minotauro",
+    "Inicio" : "1955",
+    "Fundada" : "España",
+    "Sede Central" : "Barcelona"
+  },
+  {
+    "Nombre": "British Broadcasting Corporation",
+    "Inicio" : "1922",
+    "Fundada" : "Reino Unido",
+    "Sede Central" : "Londres"
+  },
+  {
+    "Nombre": "CBS Radio, Inc.",
+    "Inicio" : "1928",
+    "Fundada" : "Estados Unidos",
+    "Sede Central" : "Nueva York"
+  },
+  {
+    "Nombre": "Porrua",
+    "Inicio" : "1900",
+    "Fundada" : "Mexico",
+    "Sede Central" : "Mexico"
+  }])
+
+db.autor.insertMany([
+  {
+    "Nombre": "Gabriel Jose De La Concordia Garcia Marquez",
+    "Nacionalidad" : "Colombiano Y Mexicano",
+    "Nacimiento" : "6 De Marzo 1927",
+    "Fallecimiento" : "17 De Abril 2014",
+    "Lengua Materna" : "Español"
+  } ,
+  {
+    "Nombre": "J. R. R. Tolkien",
+    "Nacionalidad" : "Britanico",
+    "Nacimiento" : "3 De Enero 1892",
+    "Fallecimiento" : "2 De Septiembre 1973",
+    "Lengua Materna" : "Ingles"
+  },
+  {
+    "Nombre": "George Orwell",
+    "Nacionalidad" : "Britanica",
+    "Nacimiento" : "25 De Junio 1903",
+    "Fallecimiento" : "21 De Enero 1950",
+    "Lengua Materna" : "Ingles"
+  },
+  {
+    "Nombre": "Aldous Huxley",
+    "Nacionalidad" : "Britanica",
+    "Nacimiento" : "26 De Julio 1894",
+    "Fallecimiento" : "22 De Noviembre De 1963",
+    "Lengua Materna" : "Ingles"
+  },
+  {
+    "Nombre": "Jane Austen",
+    "Nacionalidad" : "Britanica",
+    "Nacimiento" : "16 De Diciembre 1775",
+    "Fallecimiento" : "18 De Julio 1817",
+    "Lengua Materna" : "Ingles"
+  }])
+

@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "64a6cccec5aec2a9c98eb5a9"
+  },
+  "imagen": "img/juegos",
+  "nombre": "Juegos",
+  "descripcion": "Juegos toda edad"
+},
+{
+  "_id": {
+    "$oid": "64a6cccec5aec2a9c98eb5aa"
+  },
+  "imagen": "img/electrodomesticos",
+  "nombre": "Electrodomesticos",
+  "descripcion": "Electrodomesticos hogar"
+},
+{
+  "_id": {
+    "$oid": "64a6cd44c5aec2a9c98eb5ab"
+  },
+  "imagen": "img/Ropa Mujer",
+  "nombre": "Ropa Mujer",
+  "descripcion": "Ropa para mujer"
+},
+{
+  "_id": {
+    "$oid": "64a6cd44c5aec2a9c98eb5ac"
+  },
+  "imagen": "img/ferreteria.jpg",
+  "nombre": "Ferreteria",
+  "descripcion": "Ferreteria Articulos"
+}]

@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "64a8590209435778a6a39165"
+  },
+  "Nombre": "Gabriel Jose De La Concordia Garcia Marquez",
+  "Nacionalidad": "Colombiano Y Mexicano",
+  "Nacimiento": "6 De Marzo 1927",
+  "Fallecimiento": "17 De Abril 2014",
+  "Lengua Materna": "Español"
+},{
+  "_id": {
+    "$oid": "64a8590209435778a6a39166"
+  },
+  "Nombre": "J. R. R. Tolkien",
+  "Nacionalidad": "Britanico",
+  "Nacimiento": "3 De Enero 1892",
+  "Fallecimiento": "2 De Septiembre 1973",
+  "Lengua Materna": "Ingles"
+},{
+  "_id": {
+    "$oid": "64a8590209435778a6a39167"
+  },
+  "Nombre": "George Orwell",
+  "Nacionalidad": "Britanica",
+  "Nacimiento": "25 De Junio 1903",
+  "Fallecimiento": "21 De Enero 1950",
+  "Lengua Materna": "Ingles"
+},{
+  "_id": {
+    "$oid": "64a8590209435778a6a39168"
+  },
+  "Nombre": "Aldous Huxley",
+  "Nacionalidad": "Britanica",
+  "Nacimiento": "26 De Julio 1894",
+  "Fallecimiento": "22 De Noviembre De 1963",
+  "Lengua Materna": "Ingles"
+},{
+  "_id": {
+    "$oid": "64a8590209435778a6a39169"
+  },
+  "Nombre": "Jane Austen",
+  "Nacionalidad": "Britanica",
+  "Nacimiento": "16 De Diciembre 1775",
+  "Fallecimiento": "18 De Julio 1817",
+  "Lengua Materna": "Ingles"
+}]
