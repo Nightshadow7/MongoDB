@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "64ac4f8ceb62d5bea6957896"
+  },
+  "Nombre": "EVENEPOEL",
+  "Nacionalidad": "Belgica",
+  "Numero": "134",
+  "Color_Camisa": "Rojo"
+},
+{
+  "_id": {
+    "$oid": "64ac4f8ceb62d5bea6957897"
+  },
+  "Nombre": "M. PEDERSEN",
+  "Nacionalidad": "Dinamarca",
+  "Numero": "81",
+  "Color_Camisa": "Blanco con Azul"
+},
+{
+  "_id": {
+    "$oid": "64ac4f8ceb62d5bea6957898"
+  },
+  "Nombre": "R. CARAPAZ",
+  "Nacionalidad": "Ecuador",
+  "Numero": "134",
+  "Color_Camisa": "Rojo"
+},
+{
+  "_id": {
+    "$oid": "64ac4f8ceb62d5bea6957899"
+  },
+  "Nombre": "M. SOLER",
+  "Nacionalidad": "España",
+  "Numero": "171",
+  "Color_Camisa": "Amarillo"
+}]
