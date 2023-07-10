@@ -1,0 +1,5 @@
+dependencias a instalar 
+npm install dotenv
+npm install express
+npm install mongoose
+
