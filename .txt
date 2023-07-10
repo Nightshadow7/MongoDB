@@ -3,3 +3,28 @@ npm install dotenv
 npm install express
 npm install mongoose
 
+db.ciclistas.insertMany([
+  {
+    "Nombre": "EVENEPOEL",
+    "Nacionalidad" : "Belgica",
+    "Numero" : "134",
+    "Color_Camisa" : "Rojo"
+  },
+  {
+    "Nombre": "M. PEDERSEN",
+    "Nacionalidad" : "Dinamarca",
+    "Numero" : "81",
+    "Color_Camisa" : "Blanco con Azul"
+  },
+  {
+    "Nombre": "R. CARAPAZ",
+    "Nacionalidad" : "Ecuador",
+    "Numero" : "134",
+    "Color_Camisa" : "Rojo"
+  },
+  {
+    "Nombre": "M. SOLER",
+    "Nacionalidad" : "España",
+    "Numero" : "171",
+    "Color_Camisa" : "Amarillo"
+  }])
