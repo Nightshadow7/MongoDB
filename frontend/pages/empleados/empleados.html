@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Categorias</title>
+  <title>Empleados</title>
   <!-- typografia -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,56 +59,209 @@
   
   <div class="container-fluid d-flex justify-content-center ">
     <div class="col-11 my-5 p-5 border border border-danger rounded ">
-      <h1 class="p-3 d-flex justify-content-center" id="title">Categorias</h1>
+      <h1 class="p-3 d-flex justify-content-center" id="title">Empleados</h1>
 
-      <button type="button" class="btn btn-outline-success m-3" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Registrar nueva Categoria</button>
+      <button type="button" class="btn btn-outline-success m-3" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Registrar nuevo Empleado</button>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar nueva Categoria</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Registrar nuevo Empleado</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="registrarCategoria" method="post" class="d-flex row">
+            <form id="registrarEmpleado" method="post" class="d-flex row">
               
+              <div class="col-6">
+                <label for="Apellido" class="col-form-label">Apellido</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Apellido"
+                  name="Apellido"
+                  required
+                />
+              </div>
 
-              <div class="col-12">
+              <div class="col-6">
                 <label for="Nombre" class="col-form-label">Nombre</label>
                 <input 
                   type="text" 
                   class="form-control" 
                   id="Nombre"
-                  name="nombre"
+                  name="Nombre"
                   required
                 />
               </div>
 
-              <div class="col-12">
-                <label for="Descripcion" class="col-form-label">Descripcion</label>
-                <textarea
-                  type="text" 
-                  class="form-control" 
-                  id="Descripcion"
-                  name="descripcion"
-                  required
-                ></textarea>
-              </div>
-
-              <div class="col-12">
-                <label for="Imagen" class="col-form-label">Imagen</label>
+              <div class="col-6">
+                <label for="Titulo" class="col-form-label">Titulo</label>
                 <input 
                   type="text" 
                   class="form-control" 
-                  id="Imagen"
-                  name="imagen"
+                  id="Titulo"
+                  name="Titulo"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="TituloCortesia" class="col-form-label">Titulo de Cortesia</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="TituloCortesia"
+                  name="TituloCortesia"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="FechaNacimiento" class="col-form-label">Fecha de Nacimiento</label>
+                <input 
+                  type="date" 
+                  class="form-control" 
+                  id="FechaNacimiento"
+                  name="FechaNacimiento"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="FechaContratacion" class="col-form-label">Fecha de Contratacion</label>
+                <input 
+                  type="date" 
+                  class="form-control" 
+                  id="FechaContratacion"
+                  name="FechaContratacion"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Direccion" class="col-form-label">Direccion</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Direccion"
+                  name="Direccion"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Ciudad" class="col-form-label">Ciudad</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Ciudad"
+                  name="Ciudad"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Regiones" class="col-form-label">Regiones</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Regiones"
+                  name="Regiones"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="CodigoPostal" class="col-form-label">Codigo Postal</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="CodigoPostal"
+                  name="CodigoPostal"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Pais" class="col-form-label">Pais</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Pais"
+                  name="Pais"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Telefono" class="col-form-label">Telefono</label>
+                <input 
+                  type="number" 
+                  class="form-control" 
+                  id="Telefono"
+                  name="Telefono"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Extension" class="col-form-label">Extension</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Extension"
+                  name="Extension"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Foto" class="col-form-label">Foto</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Foto"
+                  name="Foto"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Notas" class="col-form-label">Notas</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Notas"
+                  name="Notas"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Jefe" class="col-form-label">Jefe</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Jefe"
+                  name="Jefe"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="RutaFoto" class="col-form-label">Ruta de la Foto</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="RutaFoto"
+                  name="RutaFoto"
                   required
                 />
               </div>
               
               <div class="modal-footer my-3">
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" id="registrarCategoria" class="btn btn-outline-info mx-4">Añadir</button>
+                <button type="submit" id="registrarEmpleado" class="btn btn-outline-info mx-4">Añadir</button>
               </div>
             </form>
           </div>
@@ -120,40 +273,195 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Categoria</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Empleado</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form id="edit" method="post" class="d-flex row">
-              <div class="col-12">
+
+              <div class="col-6">
+                <label for="Apellido2" class="col-form-label">Apellido</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Apellido2"
+                  name="Apellido2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
                 <label for="Nombre2" class="col-form-label">Nombre</label>
                 <input 
                   type="text" 
                   class="form-control" 
                   id="Nombre2"
-                  name="nombre"
+                  name="Nombre2"
                   required
                 />
               </div>
 
-              <div class="col-12">
-                <label for="Descripcion2  " class="col-form-label">Descripcion</label>
-                <textarea 
-                  type="text" 
-                  class="form-control" 
-                  id="Descripcion2"
-                  name="descripcion"
-                  required
-                ></textarea>
-              </div>
-
-              <div class="col-12">
-                <label for="Imagen2" class="col-form-label">Imagen</label>
+              <div class="col-6">
+                <label for="Titulo2" class="col-form-label">Titulo</label>
                 <input 
                   type="text" 
                   class="form-control" 
-                  id="Imagen2"
-                  name="imagen"
+                  id="Titulo2"
+                  name="Titulo2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="TituloCortesia2" class="col-form-label">Titulo de Cortesia</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="TituloCortesia2"
+                  name="TituloCortesia2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="FechaNacimiento2" class="col-form-label">Fecha de Nacimiento</label>
+                <input 
+                  type="date" 
+                  class="form-control" 
+                  id="FechaNacimiento2"
+                  name="FechaNacimiento2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="FechaContratacion2" class="col-form-label">Fecha de Contratacion</label>
+                <input 
+                  type="date" 
+                  class="form-control" 
+                  id="FechaContratacion2"
+                  name="FechaContratacion2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Direccion2" class="col-form-label">Direccion</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Direccion2"
+                  name="Direccion2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Ciudad2" class="col-form-label">Ciudad</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Ciudad2"
+                  name="Ciudad2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Regiones2" class="col-form-label">Regiones</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Regiones2"
+                  name="Regiones2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="CodigoPostal2" class="col-form-label">Codigo Postal</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="CodigoPostal2"
+                  name="CodigoPostal2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Pais2" class="col-form-label">Pais</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Pais2"
+                  name="Pais2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Telefono2" class="col-form-label">Telefono</label>
+                <input 
+                  type="number" 
+                  class="form-control" 
+                  id="Telefono2"
+                  name="Telefono2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Extension2" class="col-form-label">Extension</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Extension2"
+                  name="Extension2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Foto2" class="col-form-label">Foto</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Foto2"
+                  name="Foto2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Notas2" class="col-form-label">Notas</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Notas2"
+                  name="Notas2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="Jefe2" class="col-form-label">Jefe</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="Jefe2"
+                  name="Jefe2"
+                  required
+                />
+              </div>
+
+              <div class="col-6">
+                <label for="RutaFoto2" class="col-form-label">Ruta de la Foto</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  id="RutaFoto2"
+                  name="RutaFoto2"
                   required
                 />
               </div>
@@ -174,7 +482,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h3 class="card-title">Categorias</h3>
+                  <h3 class="card-title">Empleados</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -182,14 +490,28 @@
                     <thead>
                       <tr>
                         <th>#</th>
+                        <th>Apellido</th>
                         <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Imagen</th>
+                        <th>Titulo</th>
+                        <th>TituloCortesia</th>
+                        <th>FechaNacimiento</th>
+                        <th>FechaContratacion</th>
+                        <th>Direccion</th>
+                        <th>Ciudad</th>
+                        <th>Regiones</th>
+                        <th>CodigoPostal</th>
+                        <th>Pais</th>
+                        <th>Telefono</th>
+                        <th>Extension</th>
+                        <th>Foto</th>
+                        <th>Notas</th>
+                        <th>Jefe</th>
+                        <th>RutaFoto</th>
                       </tr>
                     </thead>
                     
 
-                    <tbody id="datosCategorias">
+                    <tbody id="datosEmpleados">
                       
                   
                       
@@ -220,7 +542,7 @@
 
 
 
-  <script src="categorias.js" type="module" ></script>
+  <script src="empleados.js" type="module" ></script>
 
 
 
