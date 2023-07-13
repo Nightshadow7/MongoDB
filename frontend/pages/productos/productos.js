@@ -128,7 +128,6 @@ function actualizar(e){
       const UnidadesPedidas = document.querySelector('#UnidadesPedidas2').value;
       const NivelReorden = document.querySelector('#NivelReorden2').value;
       const Discontinuado = document.querySelector('#Discontinuado2').value ;
-      console.log(Nombre);
 
       datos={
         _id:datosId,

@@ -132,11 +132,11 @@ function actualizar(e){
 
     const fax = e.target.getAttribute('Fax');
     const Fax1 = document.querySelector('#Fax2');
-    Fax1.value = fa;
+    Fax1.value = fax;
     
     const datosId= e.target.getAttribute('id')
     console.log(datosId);
-    const newDat = document.querySelector('#edit')
+    const newDat = document.querySelector('#EditarCliente')
     newDat.addEventListener('submit', updateCliente)
 
     let datos={};
