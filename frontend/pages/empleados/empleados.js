@@ -4,7 +4,7 @@ addEventListener('DOMContentLoaded',()=>{
 });
 
 async function cargaEmpleado(){
-  const empleado = await getempleados();
+  const empleado = await getEmpleados();
   console.log(empleado);
   const tableEmpleado = document.querySelector("#datosEmpleados");
   empleado.forEach((element,index) => {

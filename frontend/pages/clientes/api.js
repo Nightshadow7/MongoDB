@@ -6,7 +6,7 @@ const urlClientes = "http://localhost:8000/cliente";
 // const urlDeleteClientes = "http://localhost:8000/cliente/del/";
 // const urlEditClientes = "http://localhost:8000/cliente/upd/";
 
-export const getCliente= async ()=>{
+export const getClientes= async ()=>{
   try {
       const cliente = await fetch (`${urlClientes}/`);
       const datoClientes = await cliente.json();

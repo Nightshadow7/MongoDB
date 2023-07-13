@@ -1,15 +1,15 @@
-import { getEmpleados , newEmpleados , deleteEmpleados , editEmpleados } from "./api.js";
+import { getProductos , newProductos , deleteProductos , editProductos } from "./api.js";
 addEventListener('DOMContentLoaded',()=>{
-  cargaEmpleado();
+  cargaProducto();
 });
 
-async function cargaEmpleado(){
-  const empleado = await getEmpleados();
-  console.log(empleado);
-  const tableEmpleado = document.querySelector("#datosEmpleados");
-  empleado.forEach((element,index) => {
+async function cargaProducto(){
+  const producto = await getProductos();
+  console.log(producto);
+  const tableProducto = document.querySelector("#datosProductos");
+  producto.forEach((element,index) => {
     const {_id , ProductoNombre , CantidadPorUnidad  , PrecioUnitario , UnidadesStock , UnidadesPedidas , NivelReorden , Discontinuado} = element;
-    tableEmpleado.innerHTML+= `
+    tableProducto.innerHTML+= `
       <tr>
         <th scope="row">${index+1}</th>
         <td>${ProductoNombre}</td>
@@ -26,11 +26,11 @@ async function cargaEmpleado(){
   });
 };
 
-const formulario = document.getElementById('registrarEmpleado');
-formulario.addEventListener("submit", newEmpleado);
+const formulario = document.getElementById('registrarProducto');
+formulario.addEventListener("submit", newProducto);
 
 
-function newEmpleado(e){
+function newProducto(e){
   e.preventDefault();
   const ProductoNombre = document.querySelector('#ProductoNombre').value;
   const CantidadPorUnidad = document.querySelector('#CantidadPorUnidad').value;
@@ -52,30 +52,30 @@ function newEmpleado(e){
 
   if(validation(registro)){
     alert("Todos los datos son obligatorios");
-  }return newEmpleados(registro);
+  }return newProductos(registro);
 }
 
 function validation(Objeto){
   return !Object.values(Objeto).every(element => element !== '')
 }
 
-const eliminar = document.querySelector('#datosEmpleados');
-eliminar.addEventListener('click',deleteEmpleado);
+const eliminar = document.querySelector('#datosProductos');
+eliminar.addEventListener('click',deleteProducto);
 
-function deleteEmpleado (e){
+function deleteProducto (e){
   if(e.target.classList.contains('delete')){
     console.log(e.target);
     const id = e.target.getAttribute('id');
     console.log(id);
 
-    const confir = confirm("Desea eliminar esta Empleado");
+    const confir = confirm("Desea eliminar este Producto");
     if(confir){
-      deleteEmpleados(id);
+      deleteProductos(id);
     };
   }
 };
 
-const NewDates = document.querySelector('#datosEmpleados')
+const NewDates = document.querySelector('#datosProductos')
 NewDates.addEventListener('click',actualizar)
 
 
@@ -115,11 +115,11 @@ function actualizar(e){
     const datosId= e.target.getAttribute('id');
     console.log(datosId);
     const newDat = document.querySelector('#edit');
-    newDat.addEventListener('submit', updateEmpleado);
+    newDat.addEventListener('submit', updateProducto);
 
 
     let datos={};
-    function updateEmpleado(e){
+    function updateProducto(e){
       e.preventDefault();
       const ProductoNombre = document.querySelector('#ProductoNombre2').value ;
       const CantidadPorUnidad = document.querySelector('#CantidadPorUnidad2').value;
@@ -141,7 +141,7 @@ function actualizar(e){
         Discontinuado
       }
       console.log(datos._id);
-      editEmpleados(datos)
+      editProductos(datos)
     }  
   }
 }
