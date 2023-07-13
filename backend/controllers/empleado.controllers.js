@@ -3,7 +3,18 @@ import Empleado from "../models/empleados.js";
 const obtenerEmpleados = async (req,res) => {
     const empleados = await Empleado.find();
     res.json(empleados);
-}
+};
+
+const oneEmpleados = async (req,res) => {
+    try {
+        const empleado = await Empleado.findOne({_id:req.params.id});
+        res.status(200);
+        res.json(empleado);
+    } catch (error) {
+        res.status(404);
+        res.send({error: "El empleado no Existe"})
+    }
+};
 
 const agregarEmpleados = async (req, res) => {
     const empleados= new Empleado(req.body);
@@ -91,4 +102,4 @@ const actualizarEmpleados = async (req, res) => {
 }
 
 
-export {obtenerEmpleados, agregarEmpleados, borrarEmpleados, actualizarEmpleados};
+export {obtenerEmpleados, oneEmpleados , agregarEmpleados, borrarEmpleados, actualizarEmpleados};

@@ -3,7 +3,18 @@ import Producto from "../models/productos.js";
 const obtenerProductos = async (req,res) => {
     const producto = await Producto.find();
     res.json(producto);
-}
+};
+
+const oneProductos = async (req,res) => {
+    try {
+        const productos = await Producto.findOne({_id:req.params.id});
+        res.status(200);
+        res.json(productos);
+    } catch (error) {
+        res.status(404);
+        res.send({error: "El Producto no Existe"})
+    }
+};
 
 const agregarProductos = async (req, res) => {
     const producto = new Producto(req.body);
@@ -61,4 +72,4 @@ const actualizarProductos = async (req, res) => {
 }
 
 
-export {obtenerProductos, agregarProductos, borrarProductos, actualizarProductos};
+export {obtenerProductos, oneProductos , agregarProductos, borrarProductos, actualizarProductos};

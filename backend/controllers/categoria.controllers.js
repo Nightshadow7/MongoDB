@@ -5,6 +5,17 @@ const obtenerCategorias = async (req,res) => {
     res.json(categorias);
 }
 
+const oneCategorias = async (req,res) => {
+    try {
+        const categorias = await Categoria.findOne({_id:req.params.id});
+        res.status(200);
+        res.json(categorias);
+    } catch (error) {
+        res.status(404);
+        res.send({error: "La categoria no Existe"})
+    }
+};
+
 const agregarCategoria = async (req, res) => {
     const categoria = new Categoria(req.body);
     try {
@@ -30,8 +41,8 @@ const borrarCategorias = async (req, res) => {
 const actualizarCategorias = async (req, res) => {
     try {
         const categoria = await Categoria.findOne({_id:req.params.id});
-        if (req.body.CategoriaNombre){
-            categoria.CategoriaNombre = req.body.CategoriaNombre;
+        if (req.body.Nombre){
+            categoria.Nombre = req.body.Nombre;
         }
 
         if (req.body.Descripcion){
@@ -50,4 +61,4 @@ const actualizarCategorias = async (req, res) => {
 }
 
 
-export {obtenerCategorias, agregarCategoria, borrarCategorias, actualizarCategorias};
+export {obtenerCategorias, oneCategorias , agregarCategoria, borrarCategorias, actualizarCategorias};

@@ -3,7 +3,18 @@ import Cliente from "../models/clientes.js";
 const obtenerClientes = async (req,res) => {
     const clientes = await Cliente.find();
     res.json(clientes);
-}
+};
+
+const oneClientes = async (req,res) => {
+  try {
+      const cliente = await Cliente.findOne({_id:req.params.id});
+      res.status(200);
+      res.json(cliente);
+  } catch (error) {
+      res.status(404);
+      res.send({error: "El Cliente no Existe"})
+  }
+};
 
 const agregarClientes = async (req, res) => {
     const cliente = new Cliente(req.body);
@@ -70,4 +81,4 @@ const actualizarClientes = async (req, res) => {
 }
 
 
-export {obtenerClientes, agregarClientes, borrarClientes, actualizarClientes};
+export {obtenerClientes, oneClientes , agregarClientes, borrarClientes, actualizarClientes};
