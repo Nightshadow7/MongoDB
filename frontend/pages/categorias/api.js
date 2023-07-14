@@ -20,7 +20,7 @@ export const getCategorias= async ()=>{
 export const newCategorias = async (registroCategoria) => {
   console.log(registroCategoria);
   try {
-    await fetch(`${urlCategorias}/add`,{
+    await fetch(`${urlCategorias}/`,{
       method:'post',
       body: JSON.stringify(registroCategoria),
       headers:{
@@ -35,7 +35,7 @@ export const newCategorias = async (registroCategoria) => {
 export const deleteCategorias = async idCategoria =>{
   console.log(idCategoria);
   try {
-    await fetch (`${urlCategorias}/del/${idCategoria}`,{
+    await fetch (`${urlCategorias}/${idCategoria}`,{
         method:'DELETE'
     })
     window.location="./categorias.html" 
@@ -46,7 +46,7 @@ export const deleteCategorias = async idCategoria =>{
 export const editCategorias = async datos =>{
   console.log(datos._id)
   try {
-    await fetch (`${urlCategorias}/upd/${datos._id}`,{
+    await fetch (`${urlCategorias}/${datos._id}`,{
       method:'PATCH',
       body:JSON.stringify(datos),
       headers:{

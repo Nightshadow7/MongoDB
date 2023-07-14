@@ -5,9 +5,9 @@ const router = express.Router();
 import {obtenerProductos, oneProductos , agregarProductos, borrarProductos, actualizarProductos} from "../controllers/producto.controllers.js"
 
 router.get("/producto/", obtenerProductos);
-router.get("/producto/one/:id", oneProductos);
-router.post("/producto/add", agregarProductos);
-router.delete("/producto/del/:id", borrarProductos);
-router.patch("/producto/upd/:id", actualizarProductos)
+router.get("/producto/:id", oneProductos);
+router.post("/producto/", agregarProductos);
+router.delete("/producto/:id", borrarProductos);
+router.patch("/producto/:id", actualizarProductos)
 
 export default router;

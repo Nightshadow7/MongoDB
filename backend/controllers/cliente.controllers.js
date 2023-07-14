@@ -8,11 +8,9 @@ const obtenerClientes = async (req,res) => {
 const oneClientes = async (req,res) => {
   try {
       const cliente = await Cliente.findOne({_id:req.params.id});
-      res.status(200);
-      res.json(cliente);
+      res.status(200).json(cliente);
   } catch (error) {
-      res.status(404);
-      res.send({error: "El Cliente no Existe"})
+      res.status(404).send({error: "El Cliente no Existe"})
   }
 };
 

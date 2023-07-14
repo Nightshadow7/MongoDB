@@ -20,7 +20,7 @@ export const getEmpleados= async ()=>{
 export const newEmpleados = async (registroEmpleado) => {
   console.log(registroEmpleado);
   try {
-    await fetch(`${urlEmpleados}/add`,{
+    await fetch(`${urlEmpleados}/`,{
       method:'post',
       body: JSON.stringify(registroEmpleado),
       headers:{
@@ -35,7 +35,7 @@ export const newEmpleados = async (registroEmpleado) => {
 export const deleteEmpleados = async idEmpleado =>{
   console.log(idEmpleado);
   try {
-    await fetch (`${urlEmpleados}/del/${idEmpleado}`,{
+    await fetch (`${urlEmpleados}/${idEmpleado}`,{
         method:'DELETE'
     })
     window.location="./empleados.html" 
@@ -46,7 +46,7 @@ export const deleteEmpleados = async idEmpleado =>{
 export const editEmpleados = async datos =>{
   console.log(datos._id)
   try {
-    await fetch (`${urlEmpleados}/upd/${datos._id}`,{
+    await fetch (`${urlEmpleados}/${datos._id}`,{
       method:'PATCH',
       body:JSON.stringify(datos),
       headers:{

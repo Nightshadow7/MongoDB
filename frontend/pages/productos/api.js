@@ -20,7 +20,7 @@ export const getProductos= async ()=>{
 export const newProductos = async (registroProducto) => {
   console.log(registroProducto);
   try {
-    await fetch(`${urlProductos}/add`,{
+    await fetch(`${urlProductos}/`,{
       method:'post',
       body: JSON.stringify(registroProducto),
       headers:{
@@ -35,7 +35,7 @@ export const newProductos = async (registroProducto) => {
 export const deleteProductos = async idProducto =>{
   console.log(idProducto);
   try {
-    await fetch (`${urlProductos}/del/${idProducto}`,{
+    await fetch (`${urlProductos}/${idProducto}`,{
         method:'DELETE'
     })
     window.location="./productos.html" 
@@ -46,7 +46,7 @@ export const deleteProductos = async idProducto =>{
 export const editProductos = async datos =>{
   console.log(datos._id)
   try {
-    await fetch (`${urlProductos}/upd/${datos._id}`,{
+    await fetch (`${urlProductos}/${datos._id}`,{
       method:'PATCH',
       body:JSON.stringify(datos),
       headers:{

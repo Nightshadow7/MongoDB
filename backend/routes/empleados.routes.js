@@ -5,9 +5,9 @@ const router = express.Router();
 import {obtenerEmpleados, oneEmpleados , agregarEmpleados, borrarEmpleados, actualizarEmpleados} from "../controllers/empleado.controllers.js"
 
 router.get("/empleado/", obtenerEmpleados);
-router.get("/empleado/one/:id", oneEmpleados);
-router.post("/empleado/add", agregarEmpleados);
-router.delete("/empleado/del/:id", borrarEmpleados);
-router.patch("/empleado/upd/:id", actualizarEmpleados)
+router.get("/empleado/:id", oneEmpleados);
+router.post("/empleado/", agregarEmpleados);
+router.delete("/empleado/:id", borrarEmpleados);
+router.patch("/empleado/:id", actualizarEmpleados)
 
 export default router;

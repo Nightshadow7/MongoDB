@@ -19,7 +19,7 @@ export const getClientes= async ()=>{
 export const newClientes = async (registroCliente) => {
   console.log(registroCliente);
   try {
-    await fetch(`${urlClientes}/add`,{
+    await fetch(`${urlClientes}/`,{
       method:'post',
       body: JSON.stringify(registroCliente),
       headers:{
@@ -34,7 +34,7 @@ export const newClientes = async (registroCliente) => {
 export const deleteClientes = async idCliente =>{
   console.log(idCliente);
   try {
-    await fetch (`${urlClientes}/del/${idCliente}`,{
+    await fetch (`${urlClientes}/${idCliente}`,{
         method:'DELETE'
     })
     window.location="./clientes.html" 
@@ -45,7 +45,7 @@ export const deleteClientes = async idCliente =>{
 export const editClientes = async datos =>{
   console.log(datos._id)
   try {
-    await fetch (`${urlClientes}/upd/${datos._id}`,{
+    await fetch (`${urlClientes}/${datos._id}`,{
       method:'PATCH',
       body:JSON.stringify(datos),
       headers:{

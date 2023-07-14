@@ -6,23 +6,14 @@ import clientesRouter from "./routes/clientes.routes.js";
 import empleadosRouter from "./routes/empleados.routes.js";
 import productosRouter from "./routes/productos.routes.js";
 import cors from "cors"
+import Server from "./models/server.js";
 
 const app = express();
 
 app.use(express.json());
 app.use(cors())
 
-dotenv.config();
+const config = dotenv.config();
 
-app.use(categoriasRouter);
-app.use(clientesRouter);
-app.use(empleadosRouter);
-app.use(productosRouter);
-
-const PORT = process.env.PORT;
-
-conectarDB();
-
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);   
-})
+const server = new Server();
+server.listen();
