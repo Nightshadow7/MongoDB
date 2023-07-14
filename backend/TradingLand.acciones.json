@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8f6"
+  },
+  "Nombre": "Oro",
+  "Cantidad": 33
+},
+{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8f7"
+  },
+  "Nombre": "Plata",
+  "Cantidad": 4
+},
+{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8f8"
+  },
+  "Nombre": "Tesla",
+  "Cantidad": 421
+},
+{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8f9"
+  },
+  "Nombre": "Apple",
+  "Cantidad": 463
+},
+{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8fa"
+  },
+  "Nombre": "Amazon",
+  "Cantidad": 43
+},
+{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8fb"
+  },
+  "Nombre": "Microsoft",
+  "Cantidad": 345
+},
+{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8fc"
+  },
+  "Nombre": "Netflix",
+  "Cantidad": 34534
+},
+{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8fd"
+  },
+  "Nombre": "Google",
+  "Cantidad": 14
+},
+{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8fe"
+  },
+  "Nombre": "Facebook",
+  "Cantidad": 163
+},
+{
+  "_id": {
+    "$oid": "64b193b20e90679fe1f7e8ff"
+  },
+  "Nombre": "Intel",
+  "Cantidad": 643
+}]

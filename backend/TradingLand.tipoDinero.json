@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8e2"
+  },
+  "Nombre": "Fiat",
+  "Descripcion": " Se refiere a las monedas fiduciarias emitidas por los gobiernos nacionales, como el dólar, el euro, el yen, etc."
+},
+{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8e3"
+  },
+  "Nombre": "Crypto",
+  "Descripcion": "Hace referencia a las criptomonedas, que son monedas digitales basadas en tecnología de criptografía y descentralización, como Bitcoin, Ethereum, Litecoin, etc."
+},
+{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8e4"
+  },
+  "Nombre": "Digital",
+  "Descripcion": "Se refiere a cualquier forma de dinero o activo financiero que existe únicamente en formato digital, sin una forma física correspondiente."
+},
+{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8e5"
+  },
+  "Nombre": "Virtual",
+  "Descripcion": "Hace referencia a las monedas o activos utilizados en entornos virtuales, como los juegos en línea, donde pueden tener un valor dentro del contexto del juego."
+},
+{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8e6"
+  },
+  "Nombre": "Estable",
+  "Descripcion": "Se refiere a las criptomonedas que están diseñadas para mantener un valor estable en relación con un activo subyacente, como el dólar estadounidense o el oro."
+},
+{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8e7"
+  },
+  "Nombre": "Decentralizado",
+  "Descripcion": "Hace referencia a las monedas o activos que operan en una red descentralizada, sin una autoridad central que controle o regule las transacciones."
+},
+{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8e8"
+  },
+  "Nombre": "Local",
+  "Descripcion": "Se refiere a las ,monedas o activos que son utilizados principalmente en una región o área geográfica específica."
+},
+{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8e9"
+  },
+  "Nombre": "Internacional",
+  "Descripcion": "Hace referencia a las monedas o activos que son aceptados y utilizados a nivel internacional, más allá de las fronteras nacionales."
+},
+{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8ea"
+  },
+  "Nombre": "Centralizado",
+  "Descripcion": "Se refiere a las monedas o activos que están controlados y regulados por una autoridad central, como los sistemas bancarios tradicionales."
+},
+{
+  "_id": {
+    "$oid": "64b193a20e90679fe1f7e8eb"
+  },
+  "Nombre": "Blockchain",
+  "Descripcion": "Hace referencia a las tecnologías de registro distribuido como blockchain, que son utilizadas por muchas criptomonedas para garantizar la seguridad y la integridad de las transacciones."
+}]

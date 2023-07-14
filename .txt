@@ -1,0 +1,52 @@
+
+db.tipoDinero.insertMany([
+  { "Nombre": "Fiat" , "Descripcion" : " Se refiere a las monedas fiduciarias emitidas por los gobiernos nacionales, como el dólar, el euro, el yen, etc."},
+  { "Nombre": "Crypto" , "Descripcion" : "Hace referencia a las criptomonedas, que son monedas digitales basadas en tecnología de criptografía y descentralización, como Bitcoin, Ethereum, Litecoin, etc."},
+  { "Nombre": "Digital" , "Descripcion" : "Se refiere a cualquier forma de dinero o activo financiero que existe únicamente en formato digital, sin una forma física correspondiente."},
+  { "Nombre": "Virtual" , "Descripcion" : "Hace referencia a las monedas o activos utilizados en entornos virtuales, como los juegos en línea, donde pueden tener un valor dentro del contexto del juego."},
+  { "Nombre": "Estable" , "Descripcion" : "Se refiere a las criptomonedas que están diseñadas para mantener un valor estable en relación con un activo subyacente, como el dólar estadounidense o el oro."},
+  { "Nombre": "Decentralizado" , "Descripcion" : "Hace referencia a las monedas o activos que operan en una red descentralizada, sin una autoridad central que controle o regule las transacciones."},
+  { "Nombre": "Local" , "Descripcion" : "Se refiere a las ,monedas o activos que son utilizados principalmente en una región o área geográfica específica."},
+  { "Nombre": "Internacional" , "Descripcion" : "Hace referencia a las monedas o activos que son aceptados y utilizados a nivel internacional, más allá de las fronteras nacionales."},
+  { "Nombre": "Centralizado" , "Descripcion" : "Se refiere a las monedas o activos que están controlados y regulados por una autoridad central, como los sistemas bancarios tradicionales."},
+  { "Nombre": "Blockchain" , "Descripcion" : "Hace referencia a las tecnologías de registro distribuido como blockchain, que son utilizadas por muchas criptomonedas para garantizar la seguridad y la integridad de las transacciones."}
+])
+
+db.dinero.insertMany([
+  { "Nombre": "Bitcoin", "Tipo": "Crypto" },
+  { "Nombre": "Dólar", "Tipo": "Fiat" },
+  { "Nombre": "Euro", "Tipo": "Fiat" },
+  { "Nombre": "Ether", "Tipo": "Crypto" },
+  { "Nombre": "Yen", "Tipo": "Fiat" },
+  { "Nombre": "Libra esterlina", "Tipo": "Fiat" },
+  { "Nombre": "Rupia india", "Tipo": "Fiat" },
+  { "Nombre": "Litecoin", "Tipo": "Crypto" },
+  { "Nombre": "Peso mexicano", "Tipo": "Fiat" },
+  { "Nombre": "Ruble ruso", "Tipo": "Fiat" }
+])
+
+db.acciones.insertMany([
+  { "Nombre": "Oro" , "Cantidad" : 33},
+  { "Nombre": "Plata" , "Cantidad" : 4},
+  { "Nombre": "Tesla" , "Cantidad" : 421},
+  { "Nombre": "Apple" , "Cantidad" : 463},
+  { "Nombre": "Amazon" , "Cantidad" : 43},
+  { "Nombre": "Microsoft" , "Cantidad" : 345},
+  { "Nombre": "Netflix" , "Cantidad" : 34534},
+  { "Nombre": "Google" , "Cantidad" : 14},
+  { "Nombre": "Facebook" , "Cantidad" : 163},
+  { "Nombre": "Intel" , "Cantidad" : 643}
+])
+
+db.trader.insertMany([
+  { "Nombre": "John Doe", "Edad": 30, "Nacionalidad": "Estados Unidos", "Presupuesto": "Dólar" },
+  { "Nombre": "Maria Rodriguez", "Edad": 28, "Nacionalidad": "España", "Presupuesto": "Euro" },
+  { "Nombre": "Li Wei", "Edad": 35, "Nacionalidad": "China", "Presupuesto": "Yuan" },
+  { "Nombre": "Hiroshi Tanaka", "Edad": 40, "Nacionalidad": "Japón", "Presupuesto": "Yen" },
+  { "Nombre": "Sophie Dupont", "Edad": 32, "Nacionalidad": "Francia", "Presupuesto": "Euro" },
+  { "Nombre": "Ravi Patel", "Edad": 29, "Nacionalidad": "India", "Presupuesto": "Rupia" },
+  { "Nombre": "Luis Hernandez", "Edad": 34, "Nacionalidad": "México", "Presupuesto": "Peso mexicano" },
+  { "Nombre": "Ivan Petrov", "Edad": 37, "Nacionalidad": "Rusia", "Presupuesto": "Ruble ruso" },
+  { "Nombre": "Emily Smith", "Edad": 31, "Nacionalidad": "Reino Unido", "Presupuesto": "Libra esterlina" },
+  { "Nombre": "Takeshi Yamamoto", "Edad": 33, "Nacionalidad": "Japón", "Presupuesto": "Yen" }
+]);

@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8ec"
+  },
+  "Nombre": "Bitcoin",
+  "Tipo": "Crypto"
+},
+{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8ed"
+  },
+  "Nombre": "Dólar",
+  "Tipo": "Fiat"
+},
+{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8ee"
+  },
+  "Nombre": "Euro",
+  "Tipo": "Fiat"
+},
+{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8ef"
+  },
+  "Nombre": "Ether",
+  "Tipo": "Crypto"
+},
+{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8f0"
+  },
+  "Nombre": "Yen",
+  "Tipo": "Fiat"
+},
+{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8f1"
+  },
+  "Nombre": "Libra esterlina",
+  "Tipo": "Fiat"
+},
+{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8f2"
+  },
+  "Nombre": "Rupia india",
+  "Tipo": "Fiat"
+},
+{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8f3"
+  },
+  "Nombre": "Litecoin",
+  "Tipo": "Crypto"
+},
+{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8f4"
+  },
+  "Nombre": "Peso mexicano",
+  "Tipo": "Fiat"
+},
+{
+  "_id": {
+    "$oid": "64b193aa0e90679fe1f7e8f5"
+  },
+  "Nombre": "Ruble ruso",
+  "Tipo": "Fiat"
+}]

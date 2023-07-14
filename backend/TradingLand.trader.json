@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e900"
+  },
+  "Nombre": "John Doe",
+  "Edad": 30,
+  "Nacionalidad": "Estados Unidos",
+  "Presupuesto": "Dólar"
+},
+{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e901"
+  },
+  "Nombre": "Maria Rodriguez",
+  "Edad": 28,
+  "Nacionalidad": "España",
+  "Presupuesto": "Euro"
+},
+{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e902"
+  },
+  "Nombre": "Li Wei",
+  "Edad": 35,
+  "Nacionalidad": "China",
+  "Presupuesto": "Yuan"
+},
+{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e903"
+  },
+  "Nombre": "Hiroshi Tanaka",
+  "Edad": 40,
+  "Nacionalidad": "Japón",
+  "Presupuesto": "Yen"
+},
+{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e904"
+  },
+  "Nombre": "Sophie Dupont",
+  "Edad": 32,
+  "Nacionalidad": "Francia",
+  "Presupuesto": "Euro"
+},
+{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e905"
+  },
+  "Nombre": "Ravi Patel",
+  "Edad": 29,
+  "Nacionalidad": "India",
+  "Presupuesto": "Rupia"
+},
+{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e906"
+  },
+  "Nombre": "Luis Hernandez",
+  "Edad": 34,
+  "Nacionalidad": "México",
+  "Presupuesto": "Peso mexicano"
+},
+{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e907"
+  },
+  "Nombre": "Ivan Petrov",
+  "Edad": 37,
+  "Nacionalidad": "Rusia",
+  "Presupuesto": "Ruble ruso"
+},
+{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e908"
+  },
+  "Nombre": "Emily Smith",
+  "Edad": 31,
+  "Nacionalidad": "Reino Unido",
+  "Presupuesto": "Libra esterlina"
+},
+{
+  "_id": {
+    "$oid": "64b193b90e90679fe1f7e909"
+  },
+  "Nombre": "Takeshi Yamamoto",
+  "Edad": 33,
+  "Nacionalidad": "Japón",
+  "Presupuesto": "Yen"
+}]
