@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const ciclistaSchema = mongoose.Schema(
+const resultadoSchema = mongoose.Schema(
   {
     Nombre:{
       type: String,
@@ -29,6 +29,6 @@ const ciclistaSchema = mongoose.Schema(
   }
 );
 
-const Ciclista = mongoose.model( 'ciclistas' , ciclistaSchema);
+const Resultado = mongoose.model( 'resultados' , resultadoSchema);
 
-export default Ciclista;
+export default Resultado;

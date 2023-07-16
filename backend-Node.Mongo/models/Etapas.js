@@ -1,23 +1,23 @@
 import mongoose from "mongoose";
 
-const ciclistaSchema = mongoose.Schema(
+const etapaSchema = mongoose.Schema(
   {
-    Nombre:{
-      type: String,
-      required: true,
-      trim: true,    
-    },
-    Nacionalidad:{
-      type: String,
-      required: true,
-      trim: true,   
-    },
     Numero:{
       type: Number,
       required: true,
+      trim: true,    
+    },
+    Fecha:{
+      type: Date,
+      required: true,
+      trim: true,   
+    },
+    Salida:{
+      type: String,
+      required: true,
       trim: true,
     },
-    Color_Camisa:{
+    Llegada:{
       type: String,
       required: true,
       trim: true,
@@ -25,10 +25,9 @@ const ciclistaSchema = mongoose.Schema(
   },
   {
     timestamps: true,
-
   }
 );
 
-const Ciclista = mongoose.model( 'ciclistas' , ciclistaSchema);
+const Etapa = mongoose.model( 'etapa' , etapaSchema , 'etapa');
 
-export default Ciclista;
+export default Etapa;

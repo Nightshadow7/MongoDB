@@ -4,27 +4,87 @@ npm install express
 npm install mongoose
 
 db.ciclistas.insertMany([
-  {
-    "Nombre": "EVENEPOEL",
-    "Nacionalidad" : "Belgica",
-    "Numero" : "134",
-    "Color_Camisa" : "Rojo"
-  },
-  {
-    "Nombre": "M. PEDERSEN",
-    "Nacionalidad" : "Dinamarca",
-    "Numero" : "81",
-    "Color_Camisa" : "Blanco con Azul"
-  },
-  {
-    "Nombre": "R. CARAPAZ",
-    "Nacionalidad" : "Ecuador",
-    "Numero" : "134",
-    "Color_Camisa" : "Rojo"
-  },
-  {
-    "Nombre": "M. SOLER",
-    "Nacionalidad" : "España",
-    "Numero" : "171",
-    "Color_Camisa" : "Amarillo"
-  }])
+  { "Nombre": "EVENEPOEL" , "Nacionalidad": "Belgica" , "Numero": "134" , "Color_Camisa": "Rojo" },
+  { "Nombre": "M. PEDERSEN" , "Nacionalidad": "Dinamarca" , "Numero": "81" , "Color_Camisa": "Blanco con Azul" },
+  { "Nombre": "R. CARAPAZ" , "Nacionalidad": "Ecuador" , "Numero": "134" , "Color_Camisa": "Rojo" },
+  { "Nombre": "M. SOLER", "Nacionalidad": "España" , "Numero": "171", "Color_Camisa": "Amarillo" },
+  { "Nombre": "Peter Sagan", "Nacionalidad": "Eslovaquia", "Numero": 11, "ColorCamisa": "Verde" },
+  { "Nombre": "Tadej Pogačar", "Nacionalidad": "Eslovenia", "Numero": 21, "ColorCamisa": "Rojo" },
+  { "Nombre": "Primoz Roglic", "Nacionalidad": "Eslovenia", "Numero": 33, "ColorCamisa": "Amarillo" },
+  { "Nombre": "Alejandro Valverde", "Nacionalidad": "España", "Numero": 44, "ColorCamisa": "Blanco" },
+  { "Nombre": "Chris Froome", "Nacionalidad": "Reino Unido", "Numero": 55, "ColorCamisa": "Negro" },
+  { "Nombre": "Egan Bernal", "Nacionalidad": "Colombia", "Numero": 66, "ColorCamisa": "Azul" },
+  { "Nombre": "Richard Carapaz", "Nacionalidad": "Ecuador", "Numero": 77, "ColorCamisa": "Morado" },
+  { "Nombre": "Miguel Ángel López", "Nacionalidad": "Colombia", "Numero": 88, "ColorCamisa": "Naranja" },
+  { "Nombre": "Tom Dumoulin", "Nacionalidad": "Países Bajos", "Numero": 99, "ColorCamisa": "Gris" },
+  { "Nombre": "Greg Van Avermaet", "Nacionalidad": "Bélgica", "Numero": 111, "ColorCamisa": "Verde" }
+])
+
+db.equipos.insertMany([
+  { "Nombre": "Movistar Team" , "Patrocinador": "Movistar" },
+  { "Nombre": "Team Ineos Grenadiers" , "Patrocinador": "Ineos" },
+  { "Nombre": "Deceuninck-Quick-Step" , "Patrocinador": "Deceuninck" },
+  { "Nombre": "Team Jumbo-Visma" , "Patrocinador": "Jumbo-Visma" },
+  { "Nombre": "BORA-hansgrohe" , "Patrocinador": "BORA" },
+  { "Nombre": "Astana-Premier Tech" , "Patrocinador": "Astana" },
+  { "Nombre": "EF Education-Nippo" , "Patrocinador": "EF Education" },
+  { "Nombre": "Groupama-FDJ" , "Patrocinador": "Groupama" },
+  { "Nombre": "Bahrain Victorious" , "Patrocinador": "Bahrain" },
+  { "Nombre": "Team DSM" , "Patrocinador": "DSM" }
+])
+
+db.etapa.insertMany([
+  { "Numero": 1, "Fecha": "2023-07-10", "Salida": "Bilbao", "Llegada": "Bilbao" },
+  { "Numero": 2, "Fecha": "2023-07-11", "Salida": "Burgos", "Llegada": "Vitoria-Gasteiz" },
+  { "Numero": 3, "Fecha": "2023-07-12", "Salida": "Vitoria-Gasteiz", "Llegada": "San Sebastián" },
+  { "Numero": 4, "Fecha": "2023-07-13", "Salida": "San Sebastián", "Llegada": "Pamplona" },
+  { "Numero": 5, "Fecha": "2023-07-14", "Salida": "Pamplona", "Llegada": "Logroño" },
+  { "Numero": 6, "Fecha": "2023-07-15", "Salida": "Logroño", "Llegada": "Soria" },
+  { "Numero": 7, "Fecha": "2023-07-16", "Salida": "Soria", "Llegada": "Zaragoza" },
+  { "Numero": 8, "Fecha": "2023-07-17", "Salida": "Zaragoza", "Llegada": "Huesca" },
+  { "Numero": 9, "Fecha": "2023-07-18", "Salida": "Huesca", "Llegada": "Andorra" },
+  { "Numero": 10, "Fecha": "2023-07-19", "Salida": "Andorra", "Llegada": "Barcelona" }
+])
+
+db.premios.insertMany([
+  { "Tipo": "Metas Volantes", "Descripcion": "Premios intermedios en sprints específicos durante las etapas" },
+  { "Tipo": "Premios de Montaña", "Descripcion": "Premios otorgados a los ciclistas que superan las cimas de montañas específicas" },
+  { "Tipo": "Maillot Rojo", "Descripcion": "Premio al líder de la clasificación general" },
+  { "Tipo": "Maillot Verde", "Descripcion": "Premio al líder de la clasificación por puntos" },
+  { "Tipo": "Maillot Blanco", "Descripcion": "Premio al mejor ciclista joven" },
+  { "Tipo": "Maillot de Lunares", "Descripcion": "Premio al líder de la clasificación de la montaña" },
+  { "Tipo": "Premio de la Combatividad", "Descripcion": "Premio al ciclista más combativo de cada etapa" },
+  { "Tipo": "Premio al Equipo", "Descripcion": "Premio al mejor equipo en la clasificación general" },
+  { "Tipo": "Premio a la Regularidad", "Descripcion": "Premio al ciclista más regular en las etapas" },
+  { "Tipo": "Premio a la Superación", "Descripcion": "Premio al ciclista que haya superado adversidades durante la carrera" }
+])
+
+db.clasificaciones.insertMany([
+  { "Tipo": "General", "Descripcion": "Clasificación general de la carrera" },
+  { "Tipo": "Puntos", "Descripcion": "Clasificación por puntos" },
+  { "Tipo": "Montaña", "Descripcion": "Clasificación de la montaña" },
+  { "Tipo": "Metas Volantes", "Descripcion": "Clasificación de metas volantes" },
+  { "Tipo": "Equipos", "Descripcion": "Clasificación de equipos" },
+  { "Tipo": "Jóvenes", "Descripcion": "Clasificación de mejores jóvenes" },
+  { "Tipo": "Combatividad", "Descripcion": "Clasificación de ciclistas más combativos" },
+  { "Tipo": "Superación", "Descripcion": "Clasificación de ciclistas con mayor superación" },
+  { "Tipo": "Veteranos", "Descripcion": "Clasificación de mejores ciclistas veteranos" },
+  { "Tipo": "Locales", "Descripcion": "Clasificación de mejores ciclistas locales" }
+])
+
+db.resultados.insertMany([
+  { "Etapa": 1, "Ciclista": "Peter Sagan", "Equipo": "BORA-hansgrohe", "Tiempo": "3h 15m 27s" },
+  { "Etapa": 1, "Ciclista": "Tadej Pogačar", "Equipo": "UAE Team Emirates", "Tiempo": "3h 15m 29s" },
+  { "Etapa": 1, "Ciclista": "Primoz Roglic", "Equipo": "Team Jumbo-Visma", "Tiempo": "3h 15m 35s" },
+  { "Etapa": 2, "Ciclista": "Alejandro Valverde", "Equipo": "Movistar Team", "Tiempo": "4h 20m 10s" },
+  { "Etapa": 2, "Ciclista": "Egan Bernal", "Equipo": "INEOS Grenadiers", "Tiempo": "4h 20m 12s" },
+  { "Etapa": 2, "Ciclista": "Richard Carapaz", "Equipo": "INEOS Grenadiers", "Tiempo": "4h 20m 18s" },
+  { "Etapa": 3, "Ciclista": "Chris Froome", "Equipo": "Israel Start-Up Nation", "Tiempo": "2h 50m 55s" },
+  { "Etapa": 3, "Ciclista": "Miguel Ángel López", "Equipo": "Astana-Premier Tech", "Tiempo": "2h 50m 58s" },
+  { "Etapa": 3, "Ciclista": "Tom Dumoulin", "Equipo": "Team DSM", "Tiempo": "2h 51m 02s" }
+])
+
+
+
+
+
