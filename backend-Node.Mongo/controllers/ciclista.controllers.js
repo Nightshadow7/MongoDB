@@ -45,8 +45,8 @@ const actualizarCiclistas = async (req, res) => {
   if (req.body.Numero){
     ciclista.Numero = req.body.Numero;
   };
-  if (req.body.Color_Camisa){
-    ciclista.Color_Camisa = req.body.Color_Camisa;
+  if (req.body.ColorCamisa){
+    ciclista.ColorCamisa = req.body.ColorCamisa;
   };
   await ciclista.save()
   res.status(200).send(ciclista)

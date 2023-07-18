@@ -17,7 +17,7 @@ const ciclistaSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
-    Color_Camisa:{
+    ColorCamisa:{
       type: String,
       required: true,
       trim: true,

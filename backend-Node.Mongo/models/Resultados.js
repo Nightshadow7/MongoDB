@@ -2,22 +2,22 @@ import mongoose from "mongoose";
 
 const resultadoSchema = mongoose.Schema(
   {
-    Nombre:{
-      type: String,
+    Etapa:{
+      type: Number,
       required: true,
       trim: true,    
     },
-    Nacionalidad:{
+    Ciclista:{
       type: String,
       required: true,
       trim: true,   
     },
-    Numero:{
-      type: Number,
+    Equipo:{
+      type: String,
       required: true,
       trim: true,
     },
-    Color_Camisa:{
+    Tiempo:{
       type: String,
       required: true,
       trim: true,

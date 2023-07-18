@@ -43,10 +43,10 @@ const actualizarEtapas = async (req, res) => {
     etapa.Fecha = req.body.Fecha;
   };
   if (req.body.Salida){
-    ciclista.Salida = req.body.Salida;
+    etapa.Salida = req.body.Salida;
   };
   if (req.body.Llegada){
-    ciclista.Llegada = req.body.Llegada;
+    etapa.Llegada = req.body.Llegada;
   };
   await etapa.save()
   res.status(200).send(etapa)

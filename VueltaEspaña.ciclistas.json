@@ -1,0 +1,126 @@
+[{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a519e"
+  },
+  "Nombre": "Peter Sagan",
+  "Nacionalidad": "Eslovaquia",
+  "Numero": 11,
+  "ColorCamisa": "Verde"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a519f"
+  },
+  "Nombre": "Tadej Pogačar",
+  "Nacionalidad": "Eslovenia",
+  "Numero": 21,
+  "ColorCamisa": "Rojo"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a519d"
+  },
+  "Nombre": "M. SOLER",
+  "Nacionalidad": "España",
+  "Numero": "171",
+  "ColorCamisa": "Amarillo"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a51a6"
+  },
+  "Nombre": "Tom Dumoulin",
+  "Nacionalidad": "Países Bajos",
+  "Numero": 99,
+  "ColorCamisa": "Gris"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a519a"
+  },
+  "Nombre": "EVENEPOEL",
+  "Nacionalidad": "Belgica",
+  "Numero": "134",
+  "ColorCamisa": "Rojo"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a51a7"
+  },
+  "Nombre": "Greg Van Avermaet",
+  "Nacionalidad": "Bélgica",
+  "Numero": 111,
+  "ColorCamisa": "Verde"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a51a1"
+  },
+  "Nombre": "Alejandro Valverde",
+  "Nacionalidad": "España",
+  "Numero": 44,
+  "ColorCamisa": "Blanco"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a519b"
+  },
+  "Nombre": "M. PEDERSEN",
+  "Nacionalidad": "Dinamarca",
+  "Numero": "81",
+  "ColorCamisa": "Blanco con Azul"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a519c"
+  },
+  "Nombre": "R. CARAPAZ",
+  "Nacionalidad": "Ecuador",
+  "Numero": "134",
+  "ColorCamisa": "Rojo"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a51a5"
+  },
+  "Nombre": "Miguel Ángel López",
+  "Nacionalidad": "Colombia",
+  "Numero": 88,
+  "ColorCamisa": "Naranja"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a51a0"
+  },
+  "Nombre": "Primoz Roglic",
+  "Nacionalidad": "Eslovenia",
+  "Numero": 33,
+  "ColorCamisa": "Amarillo"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a51a3"
+  },
+  "Nombre": "Egan Bernal",
+  "Nacionalidad": "Colombia",
+  "Numero": 66,
+  "ColorCamisa": "Azul"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a51a2"
+  },
+  "Nombre": "Chris Froome",
+  "Nacionalidad": "Reino Unido",
+  "Numero": 55,
+  "ColorCamisa": "Negro"
+},
+{
+  "_id": {
+    "$oid": "64b41958c64d67c6013a51a4"
+  },
+  "Nombre": "Richard Carapaz",
+  "Nacionalidad": "Ecuador",
+  "Numero": 77,
+  "ColorCamisa": "Morado"
+}]
