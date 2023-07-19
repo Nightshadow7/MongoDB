@@ -4,12 +4,11 @@ const DBConnection = async () => {
   try {
       await mongoose.connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
-        useCreateIndex: true,
         useUnifiedTopology: true
       });
       console.log('DB Inicializada');
   } catch (error) {
-    console.log(error);
+    console.error(error);
     throw new Error('DB no se puede Inicializar');
   }
 }

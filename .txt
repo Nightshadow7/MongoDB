@@ -1,0 +1,109 @@
+Roles 
+
+db.rol.insertMany([
+  { "Rol" : "ADMIN" },
+  { "Rol" : "USER" },
+  { "Rol" : "VENTAS" }
+])
+
+db.user.insertMany([
+  {
+    "Nombre" : "akio akio akio akio" , 
+    "Email" : "akio@akio.com.co" , 
+    "Password" : "hola1234567890" , 
+    "Imagen" : "./images/hola" , 
+    "Rol" : "USER" , 
+    "Estado" : true , 
+    "GoogleSignIn" : true 
+  },
+  {
+    "Nombre": "Juan Pérez",
+    "Email": "juan@example.com",
+    "Password": "password123",
+    "Imagen": "./images/juan",
+    "Rol": "USER",
+    "Estado": true,
+    "GoogleSignIn": false
+  },
+  {
+    "Nombre": "María López",
+    "Email": "maria@example.com",
+    "Password": "securepass",
+    "Imagen": "./images/maria",
+    "Rol": "ADMIN",
+    "Estado": true,
+    "GoogleSignIn": false
+  },
+  {
+    "Nombre": "Pedro Gómez",
+    "Email": "pedro@example.com",
+    "Password": "p@ssw0rd",
+    "Imagen": "./images/pedro",
+    "Rol": "USER",
+    "Estado": false,
+    "GoogleSignIn": true
+  },
+  {
+    "Nombre": "Laura Martínez",
+    "Email": "laura@example.com",
+    "Password": "12345678",
+    "Imagen": "./images/laura",
+    "Rol": "USER",
+    "Estado": true,
+    "GoogleSignIn": true
+  },
+  {
+    "Nombre": "Carlos Rodríguez",
+    "Email": "carlos@example.com",
+    "Password": "secretpassword",
+    "Imagen": "./images/carlos",
+    "Rol": "ADMIN",
+    "Estado": true,
+    "GoogleSignIn": false
+  },
+  {
+    "Nombre": "Ana Sánchez",
+    "Email": "ana@example.com",
+    "Password": "pass1234",
+    "Imagen": "./images/ana",
+    "Rol": "USER",
+    "Estado": true,
+    "GoogleSignIn": true
+  },
+  {
+    "Nombre": "Eduardo González",
+    "Email": "eduardo@example.com",
+    "Password": "password!@#",
+    "Imagen": "./images/eduardo",
+    "Rol": "USER",
+    "Estado": false,
+    "GoogleSignIn": false
+  },
+  {
+    "Nombre": "Isabel Torres",
+    "Email": "isabel@example.com",
+    "Password": "securepassword123",
+    "Imagen": "./images/isabel",
+    "Rol": "ADMIN",
+    "Estado": true,
+    "GoogleSignIn": true
+  },
+  {
+    "Nombre": "Roberto Fernández",
+    "Email": "roberto@example.com",
+    "Password": "pass123456",
+    "Imagen": "./images/roberto",
+    "Rol": "USER",
+    "Estado": true,
+    "GoogleSignIn": false
+  },
+  {
+    "Nombre": "Sofía Ramírez",
+    "Email": "sofia@example.com",
+    "Password": "password2021",
+    "Imagen": "./images/sofia",
+    "Rol": "USER",
+    "Estado": false,
+    "GoogleSignIn": false
+  }
+])

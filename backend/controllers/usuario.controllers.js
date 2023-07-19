@@ -1,30 +1,45 @@
-import Usuario from "./../models/usuarios.js";
+import Usuario from "./../models/Usuario.js";
+import bcryptjs from 'bcryptjs';
 
-const obtenerUsuarios = async (req, res) => {
+export const getUsuarios = async (req, res) => {
   const usuarios = await Usuario.find();
   res.json(usuarios);
 };
 
-const oneUsuarios = async (req,res) => {
+export const oneUsuarios = async (req,res) => {
   try {
     const usuarios = await Usuario.findOne({_id:req.params.id});
     res.status(200).json(usuarios);
   } catch (error) {
-    res.status(404).send({error: "El usuario no existe"})
+    res.status(404).json({msg: "El usuario no existe"})
   }
 };
 
-const agregarUsuarios = async (req, res) => {
-  const body = req.body;
-  const usuario = new Usuario(body);
+export const postUsuarios = async (req, res) => {
+  const {Nombre, Email, Password , Rol } = req.body;
+  const usuario = new Usuario({Nombre, Email, Password , Rol});
+
+  //Verificar si el correo ya existe (duplicado)
+  const existeEmail = await Usuario.findOne({Email});
+  if (existeEmail) {
+    return res.status(400).json({msg: "El email ya esta registrado"});
+  }
+
+  //Encriptar nuestra contraseña
+  const salt = bcryptjs.genSaltSync();
+  usuario.Password = bcryptjs.hashSync(Password , salt);
+
   await usuario.save();
   res.json({
     "message " : "post api",
-    usuario
+    Nombre, 
+    Email, 
+    Password , 
+    Rol
   }); 
 };
 
-const borrarUsuarios = async (req, res) => {
+export const deleteUsuarios = async (req, res) => {
   try {
     await Usuario.deleteOne({_id:req.params.id});//por si no funciona se agrega _ 
     res.status(204).send();
@@ -33,7 +48,7 @@ const borrarUsuarios = async (req, res) => {
   }
 };
 
-const actualizarUsuarios = async (req, res) => {
+export const updateUsuarios = async (req, res) => {
   try {
   const usuario = await Usuario.findOne({_id:req.params.id});
   if (req.body.Nombre){
@@ -54,5 +69,3 @@ const actualizarUsuarios = async (req, res) => {
   res.status(404).send({error: "El Usuario No existe"});
 }
 };
-
-export { obtenerUsuarios , oneUsuarios, agregarUsuarios, borrarUsuarios , actualizarUsuarios };

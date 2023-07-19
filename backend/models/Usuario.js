@@ -28,12 +28,12 @@ const usuarioSchema = mongoose.Schema(
       required: true,
       trim: true,
       default: 'USER', //Asignarle un valor por defecto en este caso se le asigna que sea usuario en cuyo caso no se halla definido antes
-      enum: ['ADMIN','USER'], //Le asigno los datos posibles que puede llegar a tener
+      //enum: ['ADMIN','USER'], //Le asigno los datos posibles que puede llegar a tener
       trim: true,
     },
     Estado:{
       type: Boolean,
-      required: true,
+      required: false,
       default: true,
       trim: true,
     },
@@ -49,6 +49,6 @@ const usuarioSchema = mongoose.Schema(
   }
 );
 
-const Usuario = mongoose.model( 'usuario' , usuarioSchema );
+const Usuario = mongoose.model( 'user' , usuarioSchema , 'user' );
 
 export default Usuario;
