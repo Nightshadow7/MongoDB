@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import DBConnection from './../database/config.js';
 import usuariosRouter from "../routes/usuario.routes.js";
-
+import authRouter from "../routes/auth.routes.js";
 
 class Server{
   constructor(){
@@ -32,6 +32,7 @@ class Server{
 
   routes(){
     this.app.use(usuariosRouter);
+    this.app.use(authRouter);
   };
 
   listen(){

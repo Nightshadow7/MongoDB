@@ -13,6 +13,6 @@ const rolSchema = mongoose.Schema(
   }
 );
 
-const Usuario = mongoose.model( 'rol' , rolSchema, );
+const Usuario = mongoose.model( 'rols' , rolSchema );
 
 export default Usuario;

@@ -10,5 +10,6 @@ app.use(cors())
 
 const config = dotenv.config();
 
+
 const server = new Server();
 server.listen();

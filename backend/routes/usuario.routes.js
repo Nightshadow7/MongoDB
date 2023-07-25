@@ -7,6 +7,7 @@ import Rol from './../models/Rol.js';
 
 const path = `/usuario/`;
 
+
 router.get(path, getUsuarios);
 router.get(`${path}:id`, oneUsuarios);
 router.post(`${path}`, [
@@ -24,5 +25,6 @@ router.post(`${path}`, [
 ],postUsuarios);
 router.delete(`${path}:id`, deleteUsuarios);
 router.patch(`${path}:id`, updateUsuarios);
+
 
 export default router;

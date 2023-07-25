@@ -1,12 +1,12 @@
 Roles 
 
-db.rol.insertMany([
+db.rols.insertMany([
   { "Rol" : "ADMIN" },
   { "Rol" : "USER" },
   { "Rol" : "VENTAS" }
 ])
 
-db.user.insertMany([
+db.users.insertMany([
   {
     "Nombre" : "akio akio akio akio" , 
     "Email" : "akio@akio.com.co" , 
