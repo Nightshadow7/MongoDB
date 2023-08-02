@@ -3,6 +3,7 @@ import cors from 'cors';
 import DBConnection from './../database/config.js';
 import usuariosRouter from "../routes/usuario.routes.js";
 import authRouter from "../routes/auth.routes.js";
+import categoriasRouter from "./../routes/categoria.routes.js";
 
 class Server{
   constructor(){
@@ -28,11 +29,15 @@ class Server{
 
     //leer y parsear JSON en BODY
     this.app.use(express.json());
+
+    //public Directory
+    this.app.use(express.static('public'));
   };
 
   routes(){
     this.app.use(usuariosRouter);
     this.app.use(authRouter);
+    this.app.use(categoriasRouter);
   };
 
   listen(){

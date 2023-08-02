@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 import { validateDocuments } from "../middlewares/validate.documents.js";
 import {check} from 'express-validator';
-import {login} from '../controllers/auth.controllers.js';
+import { login } from '../controllers/auth.controllers.js';
 
 
 

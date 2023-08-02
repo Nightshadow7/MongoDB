@@ -1,9 +1,21 @@
 import Usuario from "./../models/Usuario.js";
 import bcryptjs from 'bcryptjs';
 
+//17. getUsers
 export const getUsuarios = async (req, res) => {
-  const usuarios = await Usuario.find();
-  res.json(usuarios);
+  const { hasta, desde } = req.query;
+  const query = { Estado: true };
+
+  const [ total, usuarios ] = await Promise.all([
+    Usuario.countDocuments(query),
+    Usuario.find(query)
+      .skip( Number( desde ) )
+      .limit( Number( hasta ) )
+  ]);
+  res.json({
+    total,
+    usuarios
+  });
 };
 
 export const oneUsuarios = async (req,res) => {
@@ -15,57 +27,59 @@ export const oneUsuarios = async (req,res) => {
   }
 };
 
-export const postUsuarios = async (req, res) => {
-  const {Nombre, Email, Password , Rol } = req.body;
-  const usuario = new Usuario({Nombre, Email, Password , Rol});
 
+
+export const postUsuarios = async (req, res) => {
+  const {Nombre, Email, Password, Rol} = req.body;
+  const usuario = new Usuario({Nombre, Email, Rol});
+  
   //Verificar si el correo ya existe (duplicado)
   const existeEmail = await Usuario.findOne({Email});
   if (existeEmail) {
     return res.status(400).json({msg: "El email ya esta registrado"});
-  }
-
-  //Encriptar nuestra contraseña
-  const salt = bcryptjs.genSaltSync();
-  usuario.Password = bcryptjs.hashSync(Password , salt);
-
+  };
+  // Encriptar nuestra contraseña
+  usuario.password = Usuario.encryptPassword(Password);
+  
+  // Guardar en MONGODB
   await usuario.save();
   res.json({
-    "message " : "post api",
-    Nombre, 
-    Email, 
-    Password , 
-    Rol
-  }); 
+      "message":"El Usuario fue guardado Satisfactoriamente",
+      usuario
+  });
 };
 
 export const deleteUsuarios = async (req, res) => {
-  try {
-    await Usuario.deleteOne({_id:req.params.id});//por si no funciona se agrega _ 
-    res.status(204).send();
-  } catch (error) {
-    res.status(404).send({error:"El Usuario no existe"});
-  }
+  //19.  extraigo y respondo id pasado como parametro desde postman
+  const {id} = req.params
+
+  //20. borrado fisico en DB
+ /*  const usuario = await Usuario.findByIdAndDelete(id); */
+
+  //21.  borrado virtual.  solo se cambia el estado a false del usuario asociado al id en cuestion
+  const usuario = await Usuario.findByIdAndUpdate( id, { Estado: false 
+  });
+  res.status(204).json(usuario)
 };
 
 export const updateUsuarios = async (req, res) => {
-  try {
-  const usuario = await Usuario.findOne({_id:req.params.id});
-  if (req.body.Nombre){
-    usuario.Nombre = req.body.Nombre;
-  };
-  if (req.body.Nacionalidad){
-    usuario.Nacionalidad = req.body.Nacionalidad;
-  };
-  if (req.body.Numero){
-    usuario.Numero = req.body.Numero;
-  };
-  if (req.body.Color_Camisa){
-    usuario.Color_Camisa = req.body.Color_Camisa;
-  };
-  await usuario.save()
-  res.status(200).send(usuario)
-} catch (error) {
-  res.status(404).send({error: "El Usuario No existe"});
-}
+  /* 1- http put ini*/
+  const { id } = req.params;
+  //Extraigo lo que NO necesito que se registre en MONGODB
+  // incluyendo el object _id de mongodb
+  const { _id, Password, GoogleSignIn, ...resto } = req.body;
+
+  if ( Password ) {
+      // Encriptar la contraseña
+      const salt = bcryptjs.genSaltSync();
+      resto.Password = bcryptjs.hashSync( Password, salt );
+  }
+  //Busca documento por el id y actualiza lo deseado(resto) de la coleccion.
+  const usuario = await Usuario.findByIdAndUpdate( id, resto );
+
+  res.status(200).json({
+      msg:"Usuario Actualizado",
+      usuario : usuario
+  });
+   /* 1- http put fin */
 };

@@ -48,7 +48,13 @@ const usuarioSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-
+UsuarioSchema.statics.encryptPassword = (password) => {
+  const salt = bcryptjs.genSaltSync(10);
+  return bcryptjs.hashSync(password, salt);
+};
+UsuarioSchema.statics.comparePassword = (password, receivedPassword) => {
+  return bcryptjs.compareSync(password, receivedPassword)
+};
 const Usuario = mongoose.model( 'users' , usuarioSchema );
 
 export default Usuario;
