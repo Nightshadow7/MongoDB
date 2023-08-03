@@ -1,12 +1,12 @@
 import Cronograma from '../models/Cronograma.js';
-import { httpErrors } from "../helpers/handleErrors.js";
+import { httpError } from "./../helpers/handleError.js";
 
 export const getCronogramas = async (req, res) => {
     try {
         const allCronogramas = await Cronograma.find();
         res.json(allCronogramas);
     } catch (err) {
-        httpErrors(res, err);
+        httpError(res, err);
     }
 }
 
@@ -15,7 +15,7 @@ export const getOneCronograma = async (req, res) => {
         const oneCronograma = await Cronograma.findOne({_id:req.params.id});
         res.json(oneCronograma);
     } catch (err) {
-        httpErrors(res, err);
+        httpError(res, err);
     }
 }
 
@@ -26,7 +26,7 @@ export const createCronogramas = async (req, res) => {
       newCronograma.save();
       res.json(newCronograma);
     } catch (err) {
-        httpErrors(res, err);
+      httpError(res, err);
     }
 }
 
@@ -35,7 +35,7 @@ export const deleteCronogramas = async (req, res) => {
         await Cronograma.deleteOne({_id: req.params.id});
         res.json({status: 'OK', data: `Cronograma Eliminado con Exito`});
     } catch (err) {
-        httpErrors(res, err);
+        httpError(res, err);
     }
 }
 
@@ -48,6 +48,6 @@ export const updateCronograma = async (req, res) => {
         );
         res.json({status: 'OK', data: updatedCronograma});
     } catch (err) {
-        httpErrors(res, err);
+        httpError(res, err);
     }
 }

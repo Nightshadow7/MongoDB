@@ -1,4 +1,4 @@
-import httpError from "../helpers/handleError.js";
+import {httpError} from "./../helpers/handleError.js";
 import Psicologa from "./../models/Psicologas.js";
 import jwt from 'jsonwebtoken';
 

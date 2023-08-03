@@ -1,4 +1,4 @@
-import httpError from "./../helpers/handleError.js";
+import { httpError } from "./../helpers/handleError.js";
 import Usuario from "./../models/Usuario.js";
 import jwt from 'jsonwebtoken';
 
