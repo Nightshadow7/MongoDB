@@ -41,6 +41,11 @@ const psicologasSchema = new mongoose.Schema(
       type: Boolean,
       required: false,
       default: true
+    },
+    Rol:{
+      type: Schema.Types.ObjectId,
+      ref: 'Rol',
+      required: [true , 'Por favor asigna un rol valido'], 
     }
   },
   {
