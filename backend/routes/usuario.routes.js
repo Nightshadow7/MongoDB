@@ -8,7 +8,7 @@ import { isValidRole, emailExiste, userExistsById } from './../helpers/db.valida
 
 import Rol from './../models/Rol.js';
 
-const path = `/usuario/`;
+const path = `/api/usuarios/`;
 
 const router = Router();
 

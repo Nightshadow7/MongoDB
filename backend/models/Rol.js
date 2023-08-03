@@ -10,6 +10,7 @@ const rolSchema = mongoose.Schema(
   },
   {
     timestamps: true,
+    versionKey: false
   }
 );
 

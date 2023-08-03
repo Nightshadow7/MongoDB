@@ -2,26 +2,20 @@ import { Router } from 'express';
 import { check } from 'express-validator';
 import { validateDocuments } from './../middlewares/validate.documents.js';
 import { validateJWT } from './../middlewares/validate.jwt.js';
-import postCategoria from './../controllers/categoria.controllers.js';
+import * as categoriaControllers from "./../controllers/categoria.controllers.js";
 const router = Router();
 
-const path = `/categoria/`;
+const pathCategoria = `/categoria/`;
 
-// Crear categoria - privado - cualquier persona con un token válido
-// router.get(`${path}`,getCategorias);
-// router.get(`${path}:id`, getCategoria);
-router.post(`${path}`, [ 
+router.get(`${pathCategoria}`, categoriaControllers.getCategorias);
+router.get(`${pathCategoria}:id`, categoriaControllers.getOneCategoria);
+router.post(`${pathCategoria}`, [ 
   validateJWT, 
   check('nombre','El nombre es obligatorio').not().isEmpty(),
   validateDocuments
-], postCategoria );
-// router.delete(`${path}`,deleteCategoria);
-// router.update(`${path}`, updateCategoria)
-
-
-
-
-
+] ,categoriaControllers.postCategoria);
+router.delete(`${pathCategoria}:id`, categoriaControllers.deleteCategorias);
+router.patch(`${pathCategoria}:id`, categoriaControllers.updateCategoria);
 
 
 export default router;

@@ -39,7 +39,7 @@ export const postUsuarios = async (req, res) => {
     return res.status(400).json({msg: "El email ya esta registrado"});
   };
   // Encriptar nuestra contraseña
-  usuario.password = Usuario.encryptPassword(Password);
+  usuario.password = await Usuario.encryptPassword(Password);
   
   // Guardar en MONGODB
   await usuario.save();
@@ -70,9 +70,8 @@ export const updateUsuarios = async (req, res) => {
   const { _id, Password, GoogleSignIn, ...resto } = req.body;
 
   if ( Password ) {
-      // Encriptar la contraseña
-      const salt = bcryptjs.genSaltSync();
-      resto.Password = bcryptjs.hashSync( Password, salt );
+    // Encriptar la contraseña
+    resto.Password = await Usuario.encryptPassword( Password);
   }
   //Busca documento por el id y actualiza lo deseado(resto) de la coleccion.
   const usuario = await Usuario.findByIdAndUpdate( id, resto );

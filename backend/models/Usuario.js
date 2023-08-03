@@ -46,6 +46,7 @@ const usuarioSchema = mongoose.Schema(
   },
   {
     timestamps: true,
+    versionKey: false
   }
 );
 usuarioSchema.statics.encryptPassword = (password) => {
@@ -55,6 +56,6 @@ usuarioSchema.statics.encryptPassword = (password) => {
 usuarioSchema.statics.comparePassword = (password, receivedPassword) => {
   return bcryptjs.compareSync(password, receivedPassword)
 };
-const Usuario = mongoose.model( 'Usuarios' , usuarioSchema );
+const Usuario = mongoose.model( 'users' , usuarioSchema );
 
 export default Usuario;

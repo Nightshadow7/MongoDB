@@ -107,3 +107,5 @@ db.users.insertMany([
     "GoogleSignIn": false
   }
 ])
+
+mongodb+srv://cheeseMakerUser:12345@clusterauthentication.3s7bsmb.mongodb.net/cheeseMakerDB
