@@ -10,6 +10,7 @@ import Rol from './../models/Rol.js';
 
 const path = `/usuario/`;
 
+const router = Router();
 
 router.get(path, getUsuarios);
 router.get(`${path}:id`, oneUsuarios);

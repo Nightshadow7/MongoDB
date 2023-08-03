@@ -1,5 +1,6 @@
 
 import mongoose from 'mongoose';  
+import {Schema} from 'mongoose';
 
 const categoriaSchema = mongoose.Schema(
   {
@@ -23,5 +24,5 @@ const categoriaSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-const Categoria = mongoose.model( 'categorias' , rolSchema );
+const Categoria = mongoose.model( 'categorias' , categoriaSchema );
 export default Categoria;

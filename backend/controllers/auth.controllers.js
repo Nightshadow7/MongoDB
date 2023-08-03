@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs'
 import generateJWT from "../helpers/generate.jwt.js";
 
 export const login = async (req , res = response) => {
-  const {Email , Password , Estado} = req.body;
+  const {Email , Password } = req.body;
   try {
 
     //Verificar que existe el email en la base de datos
