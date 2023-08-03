@@ -21,8 +21,8 @@ export const getOneFamiliar = async (req, res) => {
 
 export const createFamiliares = async (req, res) => {
     try {
-      const {Mes , Nombre} = req.body;
-      const newFamiliar = await Familiar({Mes , Nombre});
+      const {Nombre , Parentezco} = req.body;
+      const newFamiliar = await Familiar({Nombre , Parentezco});
       newFamiliar.save();
       res.json(newFamiliar);
     } catch (err) {
