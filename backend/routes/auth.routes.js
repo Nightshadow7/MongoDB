@@ -13,7 +13,6 @@ router.get(`${authPath}:id`);
 router.post(`${authPath}` , [
   check('Email', 'El correo no es valido').isEmail(),
   check('Password', 'La Constraseña es requerida').not().isEmpty(),
-
   validateDocuments
 ], login);
 router.patch(`${authPath}:id`);

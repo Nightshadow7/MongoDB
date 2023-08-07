@@ -42,5 +42,5 @@ const cheeseSchema = mongoose.Schema(
   }
 );
 
-const Cheese = mongoose.model( 'cheeses' , categoriaSchema );
+const Cheese = mongoose.model( 'cheeses' , cheeseSchema );
 export default Cheese;

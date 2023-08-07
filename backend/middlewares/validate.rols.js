@@ -1,4 +1,3 @@
-//24.1 Middleware para garantizar borrado solo por usuarios con ADMIN
 export const isAdminRole = ( req, res, next ) => {
   if ( !req.usuario ) {
     return res.status(500).json({

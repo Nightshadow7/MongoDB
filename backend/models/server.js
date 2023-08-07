@@ -1,10 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import DBConnection from './../database/config.js';
-import usuariosRouter from "../routes/usuario.routes.js";
+import fileUpload from 'express-fileupload';
 import authRouter from "../routes/auth.routes.js";
+import searchRouter from "../routes/search.routes.js";
+import usuariosRouter from "../routes/usuario.routes.js";
 import categoriasRouter from "./../routes/categoria.routes.js";
-
+import cheesesRouter from './../routes/cheeses.routes.js';
+import uploadsRouter from './../routes/upload.routes.js';
 class Server{
   constructor(){
     this.app = express();
@@ -32,12 +35,21 @@ class Server{
 
     //public Directory
     this.app.use(express.static('public'));
+
+    // Fileupload 
+    this.app.use(fileUpload({
+      useTempFiles : true,
+      tempFileDir : '/tmp/'
+  }));
   };
 
   routes(){
-    this.app.use(usuariosRouter);
     this.app.use(authRouter);
+    this.app.use(searchRouter);
+    this.app.use(usuariosRouter);
     this.app.use(categoriasRouter);
+    this.app.use(cheesesRouter);
+    this.app.use(uploadsRouter);
   };
 
   listen(){
