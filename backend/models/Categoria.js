@@ -16,12 +16,13 @@ const categoriaSchema = mongoose.Schema(
     },
     Usuario: {
       type: Schema.Types.ObjectId,
-      ref: 'Usuario',
+      ref: 'users',
       required: true
     }
   },
   {
     timestamps: true,
+    versionKey: false
   }
 );
 const Categoria = mongoose.model( 'categorias' , categoriaSchema );

@@ -4,6 +4,6 @@ const router = Router();
 
 const pathSearch = `/search/`;
 
-router.get(`${pathSearch}`, search);
+router.get(`${pathSearch}:coleccion/:criterio`, search);
 
 export default router;

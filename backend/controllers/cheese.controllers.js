@@ -11,8 +11,8 @@ export const getCheeses = async (req, res = response) => {
     const [ total, cheeses ] = await Promise.all([
       Cheese.countDocuments(query),
       Cheese.find(query)
-        .populate('usuario' , 'Nombre')
-        .populate('categoria' , 'Nombre')
+        .populate('Usuario' , 'Nombre')
+        .populate('Categoria' , 'Nombre')
         .skip(Number(desde))
         .limit(Number (hasta))
     ]);
@@ -33,13 +33,13 @@ export const getOneCheese = async (req, res = response) => {
         .populate('Categoria', 'Nombre')
       res.json(oneCheese);
     } catch (err) {
-        httpError(res, err);
+      httpError(res, err);
     }
 }
 
-export const postCheese = async(req, res ) => {
+export const postCheese = async(req, res = response) => {
   try {
-    const { Estado, Usuario, ...body } = req.body;
+    const { Estado , Usuario , ...body } = req.body;
     const cheeseDB = await Cheese.findOne({ Nombre: body.Nombre });
     if ( cheeseDB ) {
       return res.status(400).json({
@@ -49,7 +49,8 @@ export const postCheese = async(req, res ) => {
     const data = {
       ...body,
       Nombre: body.Nombre.toUpperCase(),
-      usuario: req.usuario._id
+      Usuario: req.usuario._id,
+
     };
     const cheese = new Cheese( data );
     await cheese.save();

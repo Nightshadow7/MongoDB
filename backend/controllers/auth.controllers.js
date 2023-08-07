@@ -6,7 +6,7 @@ export const login = async (req , res = response) => {
   const {Email , Password } = req.body;
   try {
     const emailExiste = await Usuario.findOne({Email});
-    if (!existeEmail) {
+    if (!emailExiste) {
       return res.status(400).json({
         msg: "El email no esta registrado"
       });

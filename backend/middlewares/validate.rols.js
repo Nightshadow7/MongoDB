@@ -4,10 +4,10 @@ export const isAdminRole = ( req, res, next ) => {
       msg: 'Se quiere verificar el role sin validar el token primero'
     });
   };
-  const { rol, nombre } = req.usuario;
-  if ( rol !== 'ADMIN' ) {
+  const { Rol, Nombre } = req.usuario;
+  if ( Rol !== 'ADMIN' ) {
     return res.status(401).json({
-      msg: `${ nombre } no es administrador - No puedes hacer esto`
+      msg: `${ Nombre } no es administrador - No puedes hacer esto`
     });
   };
   next();

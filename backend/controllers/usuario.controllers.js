@@ -25,12 +25,12 @@ export const oneUsuarios = async (req,res) => {
 };
 export const postUsuarios = async (req, res) => {
   const {Nombre, Email, Password, Rol} = req.body;
-  const usuario = new Usuario({Nombre, Email, Rol});
+  const usuario = new Usuario({Nombre, Email, Password , Rol});
   const existeEmail = await Usuario.findOne({Email});
   if (existeEmail) {
     return res.status(400).json({msg: "El email ya esta registrado"});
   };
-  usuario.password = await Usuario.encryptPassword(Password);
+  usuario.Password = await Usuario.encryptPassword(Password);
   await usuario.save();
   res.json({
       "message":"El Usuario fue guardado Satisfactoriamente",
@@ -39,12 +39,12 @@ export const postUsuarios = async (req, res) => {
 };
 export const deleteUsuarios = async (req, res) => {
   const {id} = req.params
-
-  //20. borrado fisico en DB
- /*  const usuario = await Usuario.findByIdAndDelete(id); */
   const usuario = await Usuario.findByIdAndUpdate( id, { Estado: false 
   });
-  res.status(204).json(usuario)
+  res.status(204).json({
+    msg:"Usuario Eliminado Virtualmente",
+    usuario : usuario
+  })
 };
 export const updateUsuarios = async (req, res) => {
   const { id } = req.params;
@@ -52,9 +52,13 @@ export const updateUsuarios = async (req, res) => {
   if ( Password ) {
     resto.Password = await Usuario.encryptPassword( Password);
   };
+  // if ( Password ) {
+  //   const salt = bcryptjs.genSaltSync();
+  //   resto.Password = bcryptjs.hashSync( Password, salt );
+  // }
   const usuario = await Usuario.findByIdAndUpdate( id, resto );
   res.status(200).json({
-      msg:"Usuario Actualizado",
-      usuario : usuario
+    msg:"Usuario Actualizado",
+    usuario : usuario
   });
 };

@@ -6,10 +6,10 @@ import Categoria from '../models/Categoria.js';
 import Cheese from '../models/Cheese.js';
 
 const allowedCollections = [
-    'usuarios',
-    'categorias',
-    'cheeses',
-    'rols'
+  'users',
+  'categorias',
+  'cheeses',
+  'rols'
 ]
 
 const searchUsers = async ( criterio = '', res = response ) => {
@@ -22,8 +22,8 @@ const searchUsers = async ( criterio = '', res = response ) => {
   }
   const regex = new RegExp( criterio, 'i' );
   const usuarios = await Usuario.find({
-    $or: [{ nombre: regex }, { email: regex }],
-    $and: [{ estado: true }]
+    $or: [{ Nombre: regex }, { Email: regex }],
+    $and: [{ Estado: true }]
   });
 
   res.json({
@@ -41,7 +41,7 @@ const searchCategorias = async( criterio = '', res = response ) => {
     });
   };
   const regex = new RegExp( criterio, 'i' );
-  const categorias = await Categoria.find({ nombre: regex, estado: true });
+  const categorias = await Categoria.find({ Nombre: regex, Estado: true });
   res.json({
     results: categorias
   });
@@ -52,14 +52,14 @@ const searchCheeses = async( criterio = '', res = response ) => {
   const isMongoID = objectId.isValid( criterio ); // TRUE 
   if ( isMongoID ) {
     const cheese = await Cheese.findById(criterio)
-      .populate('categoria','nombre');
+      .populate('Categoria','Nombre');
     return res.json({
       results: ( cheese ) ? [ cheese ] : []
     });
   };
   const regex = new RegExp( criterio, 'i' );
   const cheeses = await Cheese.find({ Nombre: regex, Estado: true })
-    .populate('categoria','nombre')
+    .populate('Categoria','Nombre')
   res.json({
     results: cheeses
   });
@@ -74,7 +74,7 @@ export const search = ( req, res = response ) => {
     })
   };
   switch (coleccion) {
-    case 'usuarios':
+    case 'users':
       searchUsers(criterio, res);
     break;
     case 'categorias':

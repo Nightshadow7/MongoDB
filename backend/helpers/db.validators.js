@@ -3,10 +3,10 @@ import Usuario from './../models/Usuario.js';
 import Categoria from './../models/Categoria.js';
 import Cheese from './../models/Cheese.js';
 
-export const isValidRole = async(rol= '')=>{
-  const existeRol = await Rols.findOne({rol});
-  if(!existeRol){
-    throw new Error(`El rol ${rol} no esta registrado en la base de datos`);
+export const isValidRole = async(Rol= '')=>{
+  const existeRol = await Rols.findOne({Rol});
+  if(existeRol){
+    throw new Error(`El rol ${Rol} no esta registrado en la base de datos`);
   };
 };
 export const emailExiste = async( email = '' ) => {

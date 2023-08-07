@@ -1,7 +1,8 @@
 import Categoria from './../models/Categoria.js';  
+import { response } from 'express';
 import { httpError} from "../helpers/handleError.js";
 
-export const getCategorias = async (req, res) => {
+export const getCategorias = async (req, res = response) => {
   try {
     const { hasta = 10, desde = 0} = req.query;
     const query = { 
@@ -26,7 +27,7 @@ export const getOneCategoria = async (req, res = response) => {
   try {
     const { id } = req.params;
     const oneCategoria = await Categoria.findById( id )
-      .populate('usuario' , 'nombre')
+      .populate('Usuario' , ['Nombre' , 'Email'])
     res.json(oneCategoria);
   } catch (err) {
     httpError(res, err);
@@ -34,16 +35,16 @@ export const getOneCategoria = async (req, res = response) => {
 };
 export const postCategoria = async(req, res ) => {
   try {
-    const nombre = req.body.nombre.toUpperCase();
-    const categoriaDB = await Categoria.findOne({ nombre });
+    const Nombre = req.body.Nombre.toUpperCase();
+    const categoriaDB = await Categoria.findOne({ Nombre });
     if ( categoriaDB ) {
       return res.status(400).json({
-        msg: `La categoria ${ categoriaDB.nombre }, ya existe`
+        msg: `La categoria ${ categoriaDB.Nombre }, ya existe`
       });
     };
     const data = {
-      nombre,
-      usuario: req.usuario._id,
+      Nombre,
+      Usuario: req.usuario._id,
     };
     const categoria = new Categoria( data );
     await categoria.save();
@@ -61,18 +62,18 @@ export const deleteCategorias = async (req, res) => {
       httpError(res, err);
   };
 };
-export const updateCategoria = async (req, res) => {
+export const updateCategoria = async (req, res = response) => {
   try {
     const { id } = req.params;
     const { Estado , Usuario , ...data } = req.body;
     data.Nombre  = data.Nombre.toUpperCase();
-    data.Usuario = req.Usuario._id;
+    data.Usuario = req.usuario._id;
     const updatedCategoria = await Categoria.findOneAndUpdate(
-      id,
+      {_id: id},
       data,
       {new:true}
     );
-    res.json({status: 'OK', data: updatedCategoria});
+    res.json({status: 'OK', categoria :updatedCategoria});
   } catch (err) {
     httpError(res, err);
   };

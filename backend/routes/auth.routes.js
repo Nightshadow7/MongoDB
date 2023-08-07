@@ -6,7 +6,7 @@ import { login } from '../controllers/auth.controllers.js';
 
 
 
-const authPath = '/api/auth/login';
+const authPath = '/auth/login/';
 
 router.get(`${authPath}`);
 router.get(`${authPath}:id`);

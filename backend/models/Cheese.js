@@ -15,7 +15,7 @@ const cheeseSchema = mongoose.Schema(
     },
     Usuario: {
       type: Schema.Types.ObjectId,
-      ref: 'Usuario',
+      ref: 'users',
       required: true
     },
     Price: {
@@ -24,7 +24,7 @@ const cheeseSchema = mongoose.Schema(
     },
     Categoria: {
       type: Schema.Types.ObjectId,
-      ref: 'Categoria',
+      ref: 'categorias',
       required: true
     },
     Descripcion: {

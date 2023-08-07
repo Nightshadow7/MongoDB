@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcryptjs from "bcryptjs";
 
 const usuarioSchema = mongoose.Schema(
   {
@@ -45,12 +46,12 @@ const usuarioSchema = mongoose.Schema(
     versionKey: false
   }
 );
-usuarioSchema.statics.encryptPassword = (password) => {
-  const salt = bcryptjs.genSaltSync(10);
-  return bcryptjs.hashSync(password, salt);
+usuarioSchema.statics.encryptPassword = (Password) => {
+  const salt = bcryptjs.genSaltSync();
+  return bcryptjs.hashSync(Password, salt);
 };
-usuarioSchema.statics.comparePassword = (password, receivedPassword) => {
-  return bcryptjs.compareSync(password, receivedPassword)
+usuarioSchema.statics.comparePassword = (Password, receivedPassword) => {
+  return bcryptjs.compareSync(Password, receivedPassword)
 };
 const Usuario = mongoose.model( 'users' , usuarioSchema );
 
