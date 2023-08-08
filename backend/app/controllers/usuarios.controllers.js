@@ -6,7 +6,6 @@ export const getUsuarios = async (req, res) => {
   try {
     const { hasta, desde } = req.query;
     const query = { Estado: true };
-  
     const [ total, usuarios ] = await Promise.all([
       Usuario.countDocuments(query),
       Usuario.find(query)
@@ -22,9 +21,13 @@ export const getUsuarios = async (req, res) => {
   };
 };
 
-
-export const getUsuario = (req, res) => {
-
+export const getUsuario = async (req, res = response) => {
+  try {
+    const { id } = req.params;
+    const oneUsuario = await Usuario.findById(id);
+  } catch (err) {
+    httpError(res , err)
+  }
 };
 
 export const createUsuarios = async (req, res) => {

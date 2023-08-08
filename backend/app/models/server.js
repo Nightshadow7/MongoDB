@@ -20,11 +20,6 @@ class Server {
         this.app.use(cors());
     }
 
-    // async initialSetUp(){
-    //     await createEmpresa();
-    //     await createRoles();
-    // }
-
     async connectDatabase(){
         await conectarDB();
     }

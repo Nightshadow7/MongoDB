@@ -8,6 +8,11 @@ const sexosSchema = new mongoose.Schema(
       required: [true, 'Asigne un tipo de sexo valido'],
       trim: true,
       unique: true
+    },
+    Estado:{
+      type: String,
+      required: false,
+      default: true
     }
   },
   {
