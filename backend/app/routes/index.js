@@ -4,12 +4,13 @@ import * as fs from 'fs';
 import path from "path";
 import { fileURLToPath } from "url";
 
-const removeExtension = (fileName) => {
-  return fileName.split('.').shift()
-}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const removeExtension = (fileName) => {
+  return fileName.split('.').shift()
+};
 
 const pathRouter = `${__dirname}`;
 fs.readdirSync(pathRouter).filter(async (file) => {
@@ -22,10 +23,10 @@ fs.readdirSync(pathRouter).filter(async (file) => {
   };
 });
 
-router.get('*', (req, res) => {
-  res.status(404).json({
-    message: 'No se encontro la ruta especificada'
-  })
-})
+// router.get('*', (req, res) => {
+//   res.status(404).json({
+//     message: 'No se encontro la ruta especificada'
+//   })
+// })
 
 export default router;

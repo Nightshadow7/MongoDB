@@ -1,5 +1,6 @@
 import Sexo from './../models/Sexo.js';
 import { httpError } from "./../helpers/handleError.js";
+import { response } from "express";
 
 export const getSexos = async (req, res = response) => {
   try {

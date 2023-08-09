@@ -7,6 +7,11 @@ const parentezcosSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Ingrese un parentezco valido'],
       unique: true
+    },
+    Estado:{
+      type: String,
+      required: false,
+      default: true
     }
   },
   {

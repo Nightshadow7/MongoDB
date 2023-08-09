@@ -8,7 +8,7 @@ class Server {
     constructor(){
         this.port = process.env.PORT;
         this.app = express();
-        this.routesV1 = '/api/';
+        this.routesV1 = '/api';
         // this.initialSetUp();
         this.middlewares();
         this.connectDatabase();
