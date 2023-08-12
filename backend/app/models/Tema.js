@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
-const temasSchema = new mongoose.Schema(
+const temaSchema = new mongoose.Schema(
   {
     NombreTema:{
       type: String,
@@ -19,6 +19,6 @@ const temasSchema = new mongoose.Schema(
   }
 );
 
-const Tema = mongoose.model( 'temas' , temasSchema );
+const Tema = mongoose.model( 'temas' , temaSchema );
 
 export default Tema;

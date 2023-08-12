@@ -1,53 +1,78 @@
 import Administrador from './../models/Administrador.js';
-import { httpError } from "./../helpers/handleError.js";
+import { response } from 'express';
+import { httpError} from './../helpers/handleError.js'
 
-export const getAdministradores = async (req, res) => {
+export const getAdministradores = async (req, res = response) => {
   try {
-    const allAdministradores = await Administrador.find();
-    res.json(allAdministradores);
+    const { hasta = 10, desde = 0} = req.query;
+    const query = { 
+      Estado: true 
+    };
+    const [ total, administradores ] = await Promise.all([
+      Administrador.countDocuments(query),
+      Administrador.find(query)
+        .populate('Rol', 'Rol')
+        .skip( Number( desde ) )
+        .limit( Number( hasta ) )
+    ]);
+    res.json({
+      total,
+      administradores
+    });
   } catch (err) {
     httpError(res, err);
-  }
-}
-
-export const getOneAdministrador = async (req, res) => {
+  };
+};
+export const getOneAdministrador = async (req, res = response) => {
   try {
-    const oneAdministrador = await Administrador.findOne({_id:req.params.id});
+    const { id } = req.params;
+    const oneAdministrador = await Administrador.findById( id )
+    .populate('Rol', 'Rol')
     res.json(oneAdministrador);
   } catch (err) {
     httpError(res, err);
-  }
-}
-
-export const createAdministradores = async (req, res) => {
+  };
+};
+export const postAdministrador = async(req, res = response ) => {
   try {
-    const {Nombre , Email , Password , Rol} = req.body;
-    const newAdministrador = await Administrador({Nombre , Email , Password , Rol});
-    newAdministrador.save();
-    res.json(newAdministrador);
+    const { Estado , Rol , ...body } = req.body;
+    const administradorDB = await Administrador.findOne({ Nombre: body.Nombre });
+    if ( administradorDB ) {
+      return res.status(400).json({
+        msg: `El Administrador ${ administradorDB.Nombre }, ya existe`
+      });
+    };
+    const data = {
+      ...body,
+      Nombre: body.Nombre,
+      Rol: req.rol._id,
+    };
+    const administrador = new Administrador( data );
+    await administrador.save();
+    res.status(201).json(administrador);
   } catch (err) {
     httpError(res, err);
-  }
-}
-
-export const deleteAdministradores = async (req, res) => {
+  };
+};
+export const deleteAdministrador = async (req, res = response) => {
   try {
-    await Administrador.deleteOne({_id: req.params.id});
-    res.json({status: 'OK', data: `Administrador Eliminado con Exito`});
+    const { id } = req.params
+    const administradorEliminado = await Administrador.findByIdAndUpdate( id, { Estado: false } , { new : true } );
+    res.status(204).json({
+      msg: `El Administrador ${ administradorEliminado.Nombre }, fue eliminado satisfactoriamente`
+    })
+  } catch (err) {
+      httpError(res, err);
+  };
+};
+export const updateAdministrador = async (req, res = response) => {
+  try {
+    const { id } = req.params;
+    const { Estado , Rol , ...data } = req.body;
+    data.Rol = req.rol._id;
+    const updatedAdministrador = await Administrador.findOneAndUpdate({ _id: id }, data , { new : true } );
+    res.json({status: 'OK', administrador : updatedAdministrador});
   } catch (err) {
     httpError(res, err);
-  }
-}
-
-export const updateAdministrador = async (req, res) => {
-  try {
-    const updatedAdministrador = await Administrador.findOneAndUpdate(
-      {_id:req.params.id},
-      req.body,
-      {new:true}
-      );
-      res.json({status: 'OK', data: updatedAdministrador});
-  } catch (err) {
-    httpError(res, err);
-  }
-}
+  };
+};

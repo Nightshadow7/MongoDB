@@ -1,6 +1,6 @@
 import {response , request} from 'express';
 import jwt from 'jsonwebtoken';
-import Usuario from './../models/Usuario.js';
+import Usuario from './../app/models/Usuario.js';
 //cambiar a psicologas, admin y ᄃΉЯӨПӨƧ
 export const validateJWT = async(  req = request, res = response, next) => {
   const token = req.header('x-api-token-jwt');

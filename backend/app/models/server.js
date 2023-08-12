@@ -30,9 +30,9 @@ class Server {
         })
     }
 
-    routes(){
-        this.app.use(this.routesV1, allRoutes);
-    }
+  routes(){
+    this.app.use(this.routesV1, allRoutes);
+  }
 }
 
 export default Server;

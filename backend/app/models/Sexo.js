@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
-const sexosSchema = new mongoose.Schema(
+const sexoSchema = new mongoose.Schema(
   {
     Tipo:{
       type: String,
@@ -21,6 +21,6 @@ const sexosSchema = new mongoose.Schema(
   }
 );
 
-const Sexo = mongoose.model( 'sexos' , sexosSchema );
+const Sexo = mongoose.model( 'sexos' , sexoSchema );
 
 export default Sexo;

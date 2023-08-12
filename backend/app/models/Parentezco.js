@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
-const parentezcosSchema = new mongoose.Schema(
+const parentezcoSchema = new mongoose.Schema(
   {
     Parentezco:{
       type: String,
@@ -20,6 +20,6 @@ const parentezcosSchema = new mongoose.Schema(
   }
 );
 
-const Parentezco = mongoose.model( 'parentezcos' , parentezcosSchema );
+const Parentezco = mongoose.model( 'parentezcos' , parentezcoSchema );
 
 export default Parentezco;

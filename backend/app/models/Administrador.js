@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
 
-const administradoresSchema = new mongoose.Schema(
+const administradorSchema = new mongoose.Schema(
   {
     Nombre:{
       type: String,
@@ -21,10 +21,15 @@ const administradoresSchema = new mongoose.Schema(
     },
     Rol:{
       type: Schema.Types.ObjectId,
-      ref: 'Rol', 
+      ref: 'rols', 
       required: [true, 'El Rol es obligatorio'],
       trim: true,
-    } 
+    },
+    Estado:{
+      type: Boolean,
+      required: false,
+      default: true
+    }
   },
   {
     timestamps: true,
@@ -32,6 +37,6 @@ const administradoresSchema = new mongoose.Schema(
   }
 );
 
-const Administrador = mongoose.model( 'administradores' , administradoresSchema );
+const Administrador = mongoose.model( 'administradores' , administradorSchema );
 
 export default Administrador;

@@ -1,13 +1,18 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
-const rolsSchema = new mongoose.Schema(
+const rolSchema = new mongoose.Schema(
   {
     Rol:{
       type: String,
       required: [true, 'El nombre Del rol es obligatorio'],
       trim: true,
       unique: true,
+    },
+    Estado:{
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   {
@@ -16,6 +21,6 @@ const rolsSchema = new mongoose.Schema(
   }
 );
 
-const Rols = mongoose.model( 'rols' , rolsSchema );
+const Rols = mongoose.model( 'rols' , rolSchema );
 
 export default Rols;

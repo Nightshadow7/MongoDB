@@ -2,7 +2,7 @@ import { Router } from "express";
 import * as rolControllers from "./../controllers/rols.controllers.js";
 
 const router = Router();
-const pathRol = `/rol/`;
+const pathRol = `/rols/`;
 
 router.get(`${pathRol}`, rolControllers.getRols);
 router.get(`${pathRol}:id`, rolControllers.getOneRol);

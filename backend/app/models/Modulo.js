@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
-const modulosSchema = new mongoose.Schema(
+const moduloSchema = new mongoose.Schema(
   {
     Nombre:{
       type: String,
@@ -19,6 +19,6 @@ const modulosSchema = new mongoose.Schema(
   }
 );
 
-const Modulo = mongoose.model( 'modulos' , modulosSchema );
+const Modulo = mongoose.model( 'modulos' , moduloSchema );
 
 export default Modulo;
