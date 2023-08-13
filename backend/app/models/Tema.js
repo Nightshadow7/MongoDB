@@ -11,6 +11,11 @@ const temaSchema = new mongoose.Schema(
     Descripcion:{
       type: String,
       required: [true, 'Ingrese una breve descripcion del tema antes mencionado'], 
+    },
+    Estado:{
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   {

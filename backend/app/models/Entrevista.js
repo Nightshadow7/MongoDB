@@ -85,10 +85,19 @@ const usuariosSchema = new mongoose.Schema(
       type: String, //------------------------foranea--------
       required: false,
     },
-    Familiares:{ //Aca se añaden 2 datos no se como añadirlos 
-      type: Array,
-      required: false,
-    },
+    Familiares:[{
+      Nombre:{
+        type: String,
+        required: [true, 'El nombre del familiar es obligatorio'],
+        unique: true,
+      },
+      Parentezco:{
+        type: Schema.Types.ObjectId,
+        ref: 'parentezcos',
+        required: [true, 'El parentezco es obligatorio'],
+        trim: true
+      }
+    }],
     AreaPersonal:{
       type: String,
       required: false,

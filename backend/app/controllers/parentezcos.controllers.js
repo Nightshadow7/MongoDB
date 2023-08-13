@@ -25,8 +25,8 @@ export const getParentezcos = async ( req , res = response ) => {
 export const getOneParentezco = async ( req , res = response ) => {
   try {
     const { id } = req.params;
-    const onParentezco = await Parentezco.findById( id )
-    res.json(onParentezco);
+    const oneParentezco = await Parentezco.findById( id )
+    res.json(oneParentezco);
   } catch (err) {
     httpError(res, err);
   };
