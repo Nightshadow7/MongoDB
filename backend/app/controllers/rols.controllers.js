@@ -1,53 +1,72 @@
 import Rol from './../models/Rol.js';
-import { httpError } from "./../helpers/handleError.js";
+import { response } from 'express';
+import { httpError} from './../helpers/handleError.js'
 
-export const getRols = async (req, res) => {
-    try {
-        const allRols = await Rol.find();
-        res.json(allRols);
-    } catch (err) {
-        httpError(res, err);
-    }
-}
-
-export const getOneRol = async (req, res) => {
-    try {
-        const oneRol = await Rol.findOne({_id:req.params.id});
-        res.json(oneRol);
-    } catch (err) {
-        httpError(res, err);
-    }
-}
-
-export const createRols = async (req, res) => {
-    try {
-      const {Rol} = req.body;
-      const newRol = await Rol({Rol});
-      newRol.save();
-      res.json(newRol);
-    } catch (err) {
-        httpError(res, err);
-    }
-}
-
-export const deleteRols = async (req, res) => {
-    try {
-        await Rol.deleteOne({_id: req.params.id});
-        res.json({status: 'OK', data: `Rols Eliminado con Exito`});
-    } catch (err) {
-        httpError(res, err);
-    }
-}
-
-export const updateRol = async (req, res) => {
-    try {
-        const updatedRol = await Rol.findOneAndUpdate(
-            {_id:req.params.id},
-            req.body,
-            {new:true}
-        );
-        res.json({status: 'OK', data: updatedRol});
-    } catch (err) {
-        httpError(res, err);
-    }
-}
+export const getRol = async (req, res = response) => {
+  try {
+    const { hasta = 10, desde = 0} = req.query;
+    const query = { 
+      Estado: true 
+    };
+    const [ total, rols ] = await Promise.all([
+      Rol.countDocuments(query),
+      Rol.find(query)
+        .skip( Number( desde ) )
+        .limit( Number( hasta ) )
+    ]);
+    res.json({
+      total,
+      rols
+    });
+  } catch (err) {
+    httpError(res, err);
+  };
+};
+export const getOneRol = async (req, res = response) => {
+  try {
+    const { id } = req.params;
+    const oneRol = await Rol.findById( id )
+    res.json(oneRol);
+  } catch (err) {
+    httpError(res, err);
+  };
+};
+export const postRol = async(req, res = response ) => {
+  try {
+    const { Estado , ...body } = req.body;
+    const rolDB = await Rol.findOne({ Rol: body.Rol });
+    if ( rolDB ) {
+      return res.status(400).json({
+        msg: `El Rol ${ rolDB.Rol }, ya existe`
+      });
+    };
+    const data = {
+      ...body,
+      // Nombre: body.Nombre,
+    };
+    const rol = new Rol( data );
+    await rol.save();
+    res.status(201).json(rol);
+  } catch (err) {
+    httpError(res, err);
+  };
+};
+export const deleteRol = async (req, res = response) => {
+  try {
+    const { id } = req.params
+    const rolEliminado = await Rol.findByIdAndUpdate( id, { Estado: false } , { new : true } );
+    res.status(204).json({
+      msg: `El Rol ${ rolEliminado.Rol }, fue eliminado satisfactoriamente`
+    })
+  } catch (err) {
+      httpError(res, err);
+  };
+};
+export const updateRol = async (req, res = response) => {
+  try {
+    const updatedRol = await Rol.findOneAndUpdate({ _id : req.params.id } , req.body , { new : true })
+    res.json({ status: 'OK' , data : updatedRol });
+  } catch (err) {
+    httpError(res, err);
+  };
+};
