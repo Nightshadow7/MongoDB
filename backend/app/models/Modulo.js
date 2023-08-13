@@ -11,6 +11,11 @@ const moduloSchema = new mongoose.Schema(
     AlcanceEsperado:{
       type: String,
       required: [true, 'De una breve Descripcion del alcance esperado'], 
+    },
+    Estado: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   {
