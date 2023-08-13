@@ -55,11 +55,11 @@ export const deleteRol = async (req, res = response) => {
   try {
     const { id } = req.params
     const rolEliminado = await Rol.findByIdAndUpdate( id, { Estado: false } , { new : true } );
-    res.status(204).json({
-      msg: `El Rol ${ rolEliminado.Rol }, fue eliminado satisfactoriamente`
+    res.status(200).json({
+      msg: `El Rol "${ rolEliminado.Rol }", fue eliminado satisfactoriamente`
     })
   } catch (err) {
-      httpError(res, err);
+    httpError(res, err);
   };
 };
 export const updateRol = async (req, res = response) => {

@@ -2,12 +2,11 @@ import { Router } from "express";
 import * as parentezcoControllers from "./../controllers/parentezcos.controllers.js";
 
 const router = Router();
-const pathParentezco = `/parentezco/`;
 
-router.get(`${pathParentezco}`, parentezcoControllers.getParentezcos);
-router.get(`${pathParentezco}:id`, parentezcoControllers.getOneParentezco);
-router.post(`${pathParentezco}`, parentezcoControllers.createParentezcos);
-router.delete(`${pathParentezco}:id`, parentezcoControllers.deleteParentezcos);
-router.patch(`${pathParentezco}:id`, parentezcoControllers.updateParentezco);
+router.get(`/`, parentezcoControllers.getParentezcos);
+router.get(`/:id`, parentezcoControllers.getOneParentezco);
+router.post(`/`, parentezcoControllers.postParentezco);
+router.delete(`/:id`, parentezcoControllers.deleteParentezco);
+router.patch(`/:id`, parentezcoControllers.updateParentezco);
 
 export default router;
