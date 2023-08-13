@@ -1,15 +1,17 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
-const convivenciasSchema = new mongoose.Schema(
+const convivenciaSchema = new mongoose.Schema(
   {
     Nombre:{
       type: String,
       required: [true, 'El nombre de la convivencia debe ser valida'],
+      unique: true
     },
-    Campo:{
-      type: String,
-      required: [true, 'El numero de Documento es Obligatorio'], 
+    Estado: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   {
@@ -18,6 +20,6 @@ const convivenciasSchema = new mongoose.Schema(
   }
 );
 
-const Convivencia = mongoose.model( 'convivencias' , convivenciasSchema );
+const Convivencia = mongoose.model( 'convivencias' , convivenciaSchema );
 
 export default Convivencia;

@@ -2,12 +2,11 @@ import { Router } from "express";
 import * as convivenciaControllers from "./../controllers/convivencias.controllers.js";
 
 const router = Router();
-const pathConvivencia = `/convivencia/`;
 
-router.get(`${pathConvivencia}`, convivenciaControllers.getConvivencias);
-router.get(`${pathConvivencia}:id`, convivenciaControllers.getOneConvivencia);
-router.post(`${pathConvivencia}`, convivenciaControllers.createConvivencias);
-router.delete(`${pathConvivencia}:id`, convivenciaControllers.deleteConvivencias);
-router.patch(`${pathConvivencia}:id`, convivenciaControllers.updateConvivencia);
+router.get(`/`, convivenciaControllers.getConvivencias);
+router.get(`/:id`, convivenciaControllers.getOneConvivencia);
+router.post(`/`, convivenciaControllers.postConvivencia);
+router.delete(`/:id`, convivenciaControllers.deleteConvivencia);
+router.patch(`/:id`, convivenciaControllers.updateConvivencia);
 
 export default router;
