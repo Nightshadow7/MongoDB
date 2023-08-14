@@ -1,57 +1,26 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
-const usuariosSchema = new mongoose.Schema(
+const entrevistaSchema = new mongoose.Schema(
   {
-    Nombre:{
+    Usuario:{
       type: Schema.Types.ObjectId,
       ref: 'usuarios',
       required: [true, 'El nombre es Obligatorio'],
       trim: true,
-    },
-    Sexo:{
-      type: String, //NO SE AUN COMO GUARDAR EL DATO OTROS como array es : --------Foranea----
-      required: [true , 'El sexo es Obligatorio'],
     },
     Imagen:{
       type: String,
       required: false,
       trim: true,
     },
-    Telefono:{
-      type: Number,
-      required: [true , "Debe asignar un numero de Telefono"],
-      trim: true,
-    },
-    Edad:{
-      type: Number,
-      required: true,
-      trim: [true , "Debe asignarle una Edad al Camper"],
-    },
     FechaNacimiento:{
       type: Date,
       required: true,
     },
-    Documento:{
-      type: Number,
-      required: [true, "El numero de Documento es Requerido"],
-      trim: true,
-      unique: true
-    },
     Psicologa:{
-      type: Schema.Types.ObjectId, //Es ----------Foranea----------
-      ref: 'psicologas',
+      type: String, //Es ----------Foranea- por ahora texto---------
       required: [true, "Seleccione al menos una Psicologa"]
-    },
-    Email:{
-      type: String,
-      required: [true, "El correo electronico es Obligatorio"],
-      trim: true,
-      unique: true
-    },
-    Password:{
-      type: String,
-      required: [true, "Genere una contraseña"],
     },
     Fecha:{
       type: Date,
@@ -62,7 +31,8 @@ const usuariosSchema = new mongoose.Schema(
       required: false,
     },
     Grupo:{
-      type: String, //---------------------------foreing---
+      type: Schema.Types.ObjectId,
+      ref: 'grupos',
       required: false,
     },
     LugarResidencia:{
@@ -82,7 +52,8 @@ const usuariosSchema = new mongoose.Schema(
       required: false,
     },
     Convivencia:{
-      type: String, //------------------------foranea--------
+      type: Schema.Types.ObjectId,
+      ref: 'convivencias',
       required: false,
     },
     Familiares:[{
@@ -175,28 +146,25 @@ const usuariosSchema = new mongoose.Schema(
       required: false,
       default: true 
     },
-    Asistencia:{
-      type: Array, ///Se guardaran las notas progresivamente a medida que se necesiten 
-      required: false
-    },
-    Notas:{
-      type: Array, //Se guardaran a medida que se registren
-      required: false
-    },
     MesCumpleaños:{
-      type: Number, ///--------------------------Foreing--------------------------------------
+      type: Schema.Types.ObjectId,
+      ref: 'meses',
       required: false
     },
+    Estado:{
+      type: Boolean,
+      required: false,
+      default: true
+    }
   },
   {
     timestamps: true,
     versionKey: false
   }
 );
+const Entrevista = mongoose.model( 'entrevistas' , entrevistaSchema );
 
-const Usuario = mongoose.model( 'usuarios' , usuariosSchema );
-
-export default Usuario;
+export default Entrevista;
 
 
 //Nombre , Sexo , Imagen , Telefono , Edad , FechaNacimiento , Documento , Psicologa , Email , Password , Fecha ,	Hora ,	Grupo , LugarResidencia ,	LugarProcedencia ,	Hijos ,	TotalFamiliares	, Convivencia , Famiiliares	,	AreaPersonal ,	AreaSomatica ,	AreaFamiliar ,	AreaEconomica ,	AreaAfectiva ,	AreaEducativa ,	AreaSocial ,	MetasCortoPLazo ,	MetasMedianoPlazo ,	MetasLargoPlazo ,	HabilidadesSer ,	HabilidadesHacer ,	Ajustes ,	Pasado ,	Presente ,	Futuro , 	SeguimientoPsicologico ,	PerfilPsicologico ,	Activo ,Asistencia ,	Notas	,	MesCumpleaños

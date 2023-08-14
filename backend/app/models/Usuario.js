@@ -51,7 +51,7 @@ const usuarioSchema = new mongoose.Schema(
     Rol:{
       type: Schema.Types.ObjectId,
       ref: 'rols',
-      required: [true , 'Por favor asigna un rol valido'],
+      required: [true , 'Por favor asigna un rol valido']
     }
   },
   {

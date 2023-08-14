@@ -5,13 +5,19 @@ const cumpleañosSchema = new mongoose.Schema(
   {
     Mes:{
       type: Schema.Types.ObjectId,
-      ref: 'Mes',
+      ref: 'meses',
       required: [true, 'El Mes Obligatorio'],
     },
-    Nombre:{
+    Usuario:{
       type: Schema.Types.ObjectId,
       ref: 'usuarios',
-      required: [true, 'El Usuario es obligatorio'], 
+      required: [true, 'El Usuario es obligatorio'],
+      unique: true
+    },
+    Estado: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   {

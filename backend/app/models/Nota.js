@@ -33,7 +33,6 @@ const notaSchema = new mongoose.Schema(
     versionKey: false
   }
 );
-
 const Nota = mongoose.model( 'notas' , notaSchema );
 
 export default Nota;

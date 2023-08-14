@@ -1,53 +1,71 @@
 import Nota from './../models/Nota.js';
-import { httpError } from "./../helpers/handleError.js";
+import { response } from 'express';
+import { httpError} from './../helpers/handleError.js'
 
-export const getNotas = async (req, res) => {
+export const getNotas = async (req , res = response) => {
   try {
-    const allNotas = await Nota.find();
-    res.json(allNotas);
+    const { hasta = 10, desde = 0} = req.query;
+    const query = { 
+      Estado: true 
+    };
+    const [ total, notas ] = await Promise.all([
+      Nota.countDocuments(query),
+      Nota.find(query)
+        .populate('Usuario' , ['Nombre' , 'Documento' , 'Edad' , 'Telefono' , 'Especialidades' , 'Sexo' ])
+        .populate('Tema' , ['NombreTema' , 'Descripcion'])
+        .populate('Modulo' , ['Nombre' , 'AlcanceEsperado'])
+        .skip( Number( desde ) )
+        .limit( Number( hasta ) )
+    ]);
+    res.json({
+      total,
+      notas
+    });
   } catch (err) {
     httpError(res, err);
-  }
-}
-
-export const getOneNota = async (req, res) => {
+  };
+};
+export const getOneNota = async (req , res = response) => {
   try {
-    const oneNota = await Nota.findOne({_id:req.params.id});
+    const { id } = req.params;
+    const oneNota = await Nota.findById( id )
+      .populate('Usuario' , ['Nombre' , 'Documento' , 'Edad' , 'Telefono' , 'Especialidades' , 'Sexo' ])
+      .populate('Tema' , ['NombreTema' , 'Descripcion'])
+      .populate('Modulo' , ['Nombre' , 'AlcanceEsperado'])
     res.json(oneNota);
   } catch (err) {
     httpError(res, err);
-  }
-}
-
-export const createNotas = async (req, res) => {
+  };
+};
+export const postNota = async(req, res = response ) => {
   try {
-    const {Nota , Tema , Modulo , Observaciones} = req.body;
-    const newNota = await Nota({Nota , Tema , Modulo , Observaciones});
-    newNota.save();
-    res.json(newNota);
+    const { Estado , ...body } = req.body;
+    const data = {
+      ...body
+    };
+    const nota = new Nota( data );
+    await nota.save();
+    res.status(201).json(nota);
+  } catch (err) {
+    httpError(res , err);
+  };
+};
+export const deleteNota = async (req, res = response) => {
+  try {
+    const { id } = req.params
+    const notaEliminada = await Nota.findByIdAndUpdate( id , { Estado: false } , { new : true } );
+    res.status(200).json({
+      msg: `La nota de ${ notaEliminada.Usuario.Nombre } con ${ notaEliminada.Usuario.Documento } Asociado, fue eliminada satisfactoriamente`
+    })
   } catch (err) {
     httpError(res, err);
-  }
-}
-
-export const deleteNotas = async (req, res) => {
+  };
+};
+export const updateNota = async (req, res = response) => {
   try {
-    await Nota.deleteOne({_id: req.params.id});
-    res.json({status: 'OK', data: `Nota Eliminada con Exito`});
+    const updatedNota = await Nota.findOneAndUpdate({ _id : req.params.id } , req.body , { new : true })
+    res.json({ status: 'OK' , data : updatedNota });
   } catch (err) {
     httpError(res, err);
-  }
-}
-
-export const updateNota = async (req, res) => {
-  try {
-    const updatedNota = await Nota.findOneAndUpdate(
-      {_id:req.params.id},
-      req.body,
-      {new:true}
-    );
-    res.json({status: 'OK', data: updatedNota});
-  } catch (err) {
-    httpError(res, err);
-  }
-}
+  };
+};

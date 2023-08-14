@@ -2,12 +2,11 @@ import { Router } from "express";
 import * as asistenciaControllers from "../controllers/asistencias.controllers.js";
 
 const router = Router();
-const pathAsistencia = `/asistencias/`;
 
-router.get(`${pathAsistencia}`, asistenciaControllers.getAsistencias);
-router.get(`${pathAsistencia}:id`, asistenciaControllers.getOneAsistencia);
-router.post(`${pathAsistencia}`, asistenciaControllers.postAsistencia);
-router.delete(`${pathAsistencia}:id`, asistenciaControllers.deleteAsistencia);
-router.patch(`${pathAsistencia}:id`, asistenciaControllers.updateAsistencia);
+router.get(`/`, asistenciaControllers.getAsistencias);
+router.get(`/:id`, asistenciaControllers.getOneAsistencia);
+router.post(`/`, asistenciaControllers.postAsistencia);
+router.delete(`/:id`, asistenciaControllers.deleteAsistencia);
+router.patch(`/:id`, asistenciaControllers.updateAsistencia);
 
 export default router;
