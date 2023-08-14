@@ -4,7 +4,7 @@ import {Schema} from 'mongoose';
 const mesesSchema = new mongoose.Schema(
   {
     Numero:{
-      type: String,
+      type: Number,
       required: [true, 'Ingrese un valor valido'],
       unique: true,
       trim: true,

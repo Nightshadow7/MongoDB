@@ -52,7 +52,6 @@ const usuarioSchema = new mongoose.Schema(
       type: Schema.Types.ObjectId,
       ref: 'rols',
       required: [true , 'Por favor asigna un rol valido'],
-      default: 'CAMPER' 
     }
   },
   {

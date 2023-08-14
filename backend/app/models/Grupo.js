@@ -16,6 +16,11 @@ const gruposSchema = new mongoose.Schema(
     NombreTrainer: {
       type: String,
       required: [true, 'Por favor Proporciona un  Nombre valido'],
+    },
+    Estado:{
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   {
