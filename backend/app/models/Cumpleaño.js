@@ -10,7 +10,7 @@ const cumpleañosSchema = new mongoose.Schema(
     },
     Nombre:{
       type: Schema.Types.ObjectId,
-      ref: 'Usuario',
+      ref: 'usuarios',
       required: [true, 'El Usuario es obligatorio'], 
     }
   },
