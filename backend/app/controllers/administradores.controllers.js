@@ -35,7 +35,7 @@ export const getOneAdministrador = async (req, res = response) => {
 };
 export const postAdministrador = async(req, res = response ) => {
   try {
-    const { Estado , Rol , ...body } = req.body;
+    const { Estado , ...body } = req.body;
     const administradorDB = await Administrador.findOne({ Nombre: body.Nombre });
     if ( administradorDB ) {
       return res.status(400).json({
@@ -43,9 +43,7 @@ export const postAdministrador = async(req, res = response ) => {
       });
     };
     const data = {
-      ...body,
-      Nombre: body.Nombre,
-      Rol: req.rol._id,
+      ...body
     };
     const administrador = new Administrador( data );
     await administrador.save();
@@ -58,19 +56,16 @@ export const deleteAdministrador = async (req, res = response) => {
   try {
     const { id } = req.params
     const administradorEliminado = await Administrador.findByIdAndUpdate( id, { Estado: false } , { new : true } );
-    res.status(204).json({
+    res.status(200).json({
       msg: `El Administrador ${ administradorEliminado.Nombre }, fue eliminado satisfactoriamente`
     })
   } catch (err) {
-      httpError(res, err);
+    httpError(res, err);
   };
 };
 export const updateAdministrador = async (req, res = response) => {
   try {
-    const { id } = req.params;
-    const { Estado , Rol , ...data } = req.body;
-    data.Rol = req.rol._id;
-    const updatedAdministrador = await Administrador.findOneAndUpdate({ _id: id }, data , { new : true } );
+    const updatedAdministrador = await Administrador.findOneAndUpdate({ _id : req.params.id } , req.body , { new : true } );
     res.json({status: 'OK', administrador : updatedAdministrador});
   } catch (err) {
     httpError(res, err);

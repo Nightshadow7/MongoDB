@@ -5,7 +5,7 @@ const mesesSchema = new mongoose.Schema(
   {
     Numero:{
       type: String,
-      required: [true, 'El nombre es Obligatorio'],
+      required: [true, 'Ingrese un valor valido'],
       unique: true,
       trim: true,
     },
@@ -13,6 +13,12 @@ const mesesSchema = new mongoose.Schema(
       type: String,
       required: [true, 'El nombre es necesario'], 
       trim: true,
+      unique: true,
+    },
+    Estado:{
+      type: Boolean,
+      required: false,
+      default: true,
     }
   },
   {
@@ -20,7 +26,5 @@ const mesesSchema = new mongoose.Schema(
     versionKey: false
   }
 );
-
 const Mes = mongoose.model( 'meses' , mesesSchema );
-
 export default Mes;

@@ -36,7 +36,6 @@ const administradorSchema = new mongoose.Schema(
     versionKey: false
   }
 );
-
 const Administrador = mongoose.model( 'administradores' , administradorSchema );
 
 export default Administrador;
