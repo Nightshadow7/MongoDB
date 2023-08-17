@@ -1,16 +1,17 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
-const cronogramasSchema = new mongoose.Schema(
+const cronogramaSchema = new mongoose.Schema(
   {
-    Nombre:{
+    Estudiante:{
       type: Schema.Types.ObjectId,
-      ref: 'Usuario',
-      required: [true, 'El nombre es Obligatorio'],
+      ref: 'usuarios',
+      required: true,
+      unique: true
     },
     Psicologa:{
       type: Schema.Types.ObjectId,
-      ref: 'Usuario',
+      ref: 'usuarios',
       required: true,
     },
     Dia: {
@@ -29,18 +30,13 @@ const cronogramasSchema = new mongoose.Schema(
     },
     Mes:{
       type: Schema.Types.ObjectId,
-      ref: 'Mes',
+      ref: 'meses',
       required: [true, 'Favor proporciona un mes'],
     },
-    Grupo:{
-      type: Schema.Types.ObjectId,
-      ref:  'Usuario',
-      required: true
-    },
-    Documento:{
-      type: Schema.Types.ObjectId,
-      ref: 'Usuario',
-      required: true
+    Estado:{
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   {
@@ -49,6 +45,6 @@ const cronogramasSchema = new mongoose.Schema(
   }
 );
 
-const Cronograma = mongoose.model( 'cronogramas' , cronogramasSchema );
+const Cronograma = mongoose.model( 'cronogramas' , cronogramaSchema );
 
 export default Cronograma;

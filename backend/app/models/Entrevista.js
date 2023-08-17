@@ -19,7 +19,8 @@ const entrevistaSchema = new mongoose.Schema(
       required: true,
     },
     Psicologa:{
-      type: String, //Es ----------Foranea- por ahora texto---------
+      type: Schema.Types.ObjectId,
+      ref: 'usuarios',
       required: [true, "Seleccione al menos una Psicologa"]
     },
     Fecha:{
@@ -28,11 +29,6 @@ const entrevistaSchema = new mongoose.Schema(
     },
     Hora:{
       type: Date, //No se como se pone en el esquema para las horas
-      required: false,
-    },
-    Grupo:{
-      type: Schema.Types.ObjectId,
-      ref: 'grupos',
       required: false,
     },
     LugarResidencia:{
@@ -140,11 +136,6 @@ const entrevistaSchema = new mongoose.Schema(
     PerfilPsicologico:{
       type: String,
       required: false,
-    },
-    Activo:{
-      type: Boolean,
-      required: false,
-      default: true 
     },
     MesCumpleaños:{
       type: Schema.Types.ObjectId,

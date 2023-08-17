@@ -27,7 +27,7 @@ export const getOneAdministrador = async (req, res = response) => {
   try {
     const { id } = req.params;
     const oneAdministrador = await Administrador.findById( id )
-    .populate('Rol', 'Rol')
+      .populate('Rol', 'Rol')
     res.json(oneAdministrador);
   } catch (err) {
     httpError(res, err);

@@ -41,8 +41,7 @@ export const postRol = async(req, res = response ) => {
       });
     };
     const data = {
-      ...body,
-      // Nombre: body.Nombre,
+      ...body
     };
     const rol = new Rol( data );
     await rol.save();

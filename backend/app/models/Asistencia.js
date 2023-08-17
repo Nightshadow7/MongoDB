@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
 
-const asistenciasSchema = new mongoose.Schema(
+const asistenciaSchema = new mongoose.Schema(
   {
     Fecha:{
       type: Date,
-      required: [true, 'Ingrese una fecha valida'],
+      required: false,
+      default: new Date()
     },
     Usuario: {
       type: Schema.Types.ObjectId,
@@ -31,6 +32,6 @@ const asistenciasSchema = new mongoose.Schema(
   }
 );
 
-const Asistencia = mongoose.model( 'psicologas' , asistenciasSchema );
+const Asistencia = mongoose.model( 'asistencias' , asistenciaSchema );
 
 export default Asistencia;

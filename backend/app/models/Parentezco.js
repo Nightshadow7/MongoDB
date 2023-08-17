@@ -9,7 +9,7 @@ const parentezcoSchema = new mongoose.Schema(
       unique: true
     },
     Estado:{
-      type: String,
+      type: Boolean,
       required: false,
       default: true
     }

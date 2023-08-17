@@ -1,4 +1,5 @@
 import Asistencia from '../models/Asistencia.js';
+import User from '../models/Usuario.js';
 import { response } from 'express';
 import { httpError} from './../helpers/handleError.js'
 
@@ -26,7 +27,7 @@ export const getAsistencias = async (req , res = response) => {
 export const getOneAsistencia = async (req , res = response) => {
   try {
     const { id } = req.params;
-    const oneAsisetncia = await Asistencia.findById( id )
+    const oneAsistencia = await Asistencia.findById( id )
       .populate('Usuario' , ['Nombre' , 'Documento' , 'Edad' , 'Telefono' , 'Especialidades' , 'Sexo' ])
     res.json(oneAsistencia);
   } catch (err) {
@@ -50,8 +51,10 @@ export const deleteAsistencia = async (req, res = response) => {
   try {
     const { id } = req.params
     const asistenciaEliminada = await Asistencia.findByIdAndUpdate( id , { Estado: false } , { new : true } );
+    const {Usuario} = asistenciaEliminada;
+    const user = await User.findOne({ _id: Usuario});
     res.status(200).json({
-      msg: `El Usuario ${ asistenciaEliminada.UsuarioNombre } con ${ asistenciaEliminada.Usuario.Documento } Asociado, fue eliminada satisfactoriamente`
+      msg: `El Usuario ${ user.Nombre } con ${ user.Documento } Asociado, fue eliminada su Asistencia satisfactoriamente`
     })
   } catch (err) {
     httpError(res, err);

@@ -1,4 +1,5 @@
 import Nota from './../models/Nota.js';
+import Usuario from './../models/Usuario.js';
 import { response } from 'express';
 import { httpError} from './../helpers/handleError.js'
 
@@ -54,8 +55,10 @@ export const deleteNota = async (req, res = response) => {
   try {
     const { id } = req.params
     const notaEliminada = await Nota.findByIdAndUpdate( id , { Estado: false } , { new : true } );
+    const {Nombre} = notaEliminada;
+    const user = await Usuario.findOne({ _id: Nombre});
     res.status(200).json({
-      msg: `La nota de ${ notaEliminada.Usuario.Nombre } con ${ notaEliminada.Usuario.Documento } Asociado, fue eliminada satisfactoriamente`
+      msg: `La nota de ${ user.Nombre } con ${ user.Documento } Asociado, fue eliminada satisfactoriamente`
     })
   } catch (err) {
     httpError(res, err);

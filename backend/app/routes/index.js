@@ -4,14 +4,11 @@ import * as fs from 'fs';
 import path from "path";
 import { fileURLToPath } from "url";
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const removeExtension = (fileName) => {
   return fileName.split('.').shift()
 };
-
 const pathRouter = `${__dirname}`;
 fs.readdirSync(pathRouter).filter(async (file) => {
   const fileWithOutExt = removeExtension(file);
@@ -22,11 +19,5 @@ fs.readdirSync(pathRouter).filter(async (file) => {
     console.log("Cargar Ruta ======>", fileWithOutExt);
   };
 });
-
-// router.get('*', (req, res) => {
-//   res.status(404).json({
-//     message: 'No se encontro la ruta especificada'
-//   })
-// })
 
 export default router;
