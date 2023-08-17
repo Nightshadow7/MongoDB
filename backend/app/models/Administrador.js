@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import {Schema} from 'mongoose';
-
+import bcryptjs from 'bcryptjs';
 
 const administradorSchema = new mongoose.Schema(
   {
@@ -36,6 +36,12 @@ const administradorSchema = new mongoose.Schema(
     versionKey: false
   }
 );
+administradorSchema.statics.encryptPassword = (password) => {
+  const salt = bcryptjs.genSaltSync(10);
+  return bcryptjs.hashSync(password, salt);
+};
+administradorSchema.statics.comparePassword = (password, receivedPassword) => {
+  return bcryptjs.compareSync(password, receivedPassword)
+};
 const Administrador = mongoose.model( 'administradores' , administradorSchema );
-
 export default Administrador;

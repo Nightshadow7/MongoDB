@@ -35,16 +35,23 @@ export const getOneAdministrador = async (req, res = response) => {
 };
 export const postAdministrador = async(req, res = response ) => {
   try {
-    const { Estado , ...body } = req.body;
+    const { Estado , Password , ...body } = req.body;
     const administradorDB = await Administrador.findOne({ Nombre: body.Nombre });
+    const emailDB = await Administrador.findOne({ Email: body.Email });
     if ( administradorDB ) {
       return res.status(400).json({
         msg: `El Administrador ${ administradorDB.Nombre }, ya existe`
       });
     };
+    if ( emailDB ) {
+      return res.status(400).json({
+        msg: `El Email ${ emailDB.Email }, ya se encuentra Registrado con otro usuario`
+      });
+    };
     const data = {
       ...body
     };
+    data.Password = await Administrador.encryptPassword(Password);
     const administrador = new Administrador( data );
     await administrador.save();
     res.status(201).json(administrador);
@@ -65,7 +72,11 @@ export const deleteAdministrador = async (req, res = response) => {
 };
 export const updateAdministrador = async (req, res = response) => {
   try {
-    const updatedAdministrador = await Administrador.findOneAndUpdate({ _id : req.params.id } , req.body , { new : true } );
+    const { Password , ...resto } = req.body;
+    if ( Password ) {
+      resto.Password = await Administrador.encryptPassword( Password);
+    };
+    const updatedAdministrador = await Administrador.findOneAndUpdate({ _id : req.params.id } , resto , { new : true } );
     res.json({status: 'OK', administrador : updatedAdministrador});
   } catch (err) {
     httpError(res, err);
