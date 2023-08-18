@@ -37,7 +37,7 @@ export const getOneUsuario = async (req , res = response) => {
 };
 export const postUsuario = async(req, res = response ) => {
   try {
-    const { Estado , ...body } = req.body;
+    const { Estado , Password , ...body } = req.body;
     const documentoDB = await Usuario.findOne({ Documento: body.Documento });
     const emailDB = await Usuario.findOne({ Email: body.Email });
     if ( documentoDB && emailDB ) {
@@ -58,6 +58,7 @@ export const postUsuario = async(req, res = response ) => {
     const data = {
       ...body
     };
+    data.Password = await Usuario.encryptPassword(Password);
     const usuario = new Usuario( data );
     await usuario.save();
     res.status(201).json(usuario);
@@ -78,7 +79,11 @@ export const deleteUsuario = async (req, res = response) => {
 };
 export const updateUsuario = async (req, res = response) => {
   try {
-    const updatedUsuario = await Usuario.findOneAndUpdate({ _id : req.params.id } , req.body , { new : true })
+    const { Password , ...resto } = req.body;
+    if ( Password ) {
+      resto.Password = await Usuario.encryptPassword( Password );
+    };
+    const updatedUsuario = await Usuario.findOneAndUpdate({ _id : req.params.id } , resto , { new : true })
     res.json({ status: 'OK' , data : updatedUsuario });
   } catch (err) {
     httpError(res, err);
