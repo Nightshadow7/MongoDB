@@ -41,7 +41,7 @@ administradorSchema.statics.encryptPassword = (password) => {
   return bcryptjs.hashSync(password, salt);
 };
 administradorSchema.statics.comparePassword = (password, receivedPassword) => {
-  return bcryptjs.compareSync(password, receivedPassword)
+  return bcryptjs.compareSync(password, receivedPassword);
 };
 const Administrador = mongoose.model( 'administradores' , administradorSchema );
 export default Administrador;

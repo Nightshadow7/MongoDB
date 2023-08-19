@@ -1,14 +1,8 @@
-import express from "express";
-const router = express.Router();
-import { validateDocuments } from "./../../middlewares/validate.documents.js";
-import { check } from 'express-validator';
-import { login } from './../controllers/auth.controllers.js';
+import { Router } from "express";
+import * as authsControllers from "../controllers/auth.controllers.js";
+import {authMiddleware} from "./../../middlewares/auth.validation.js";
+const router = Router();
 
-const authPath = '/auth/login';
-
-router.get(`${authPath}`);
-router.get(`${authPath}:id`);
-router.post(`${authPath}`, login);
-router.patch(`${authPath}:id`);
-
+router.post(`/user`, [ authMiddleware ] , authsControllers.loginUser);
+router.post(`/admin`, [ authMiddleware ] , authsControllers.loginAdmin);
 export default router;

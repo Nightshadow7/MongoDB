@@ -35,7 +35,7 @@ export const getOneAdministrador = async (req, res = response) => {
 };
 export const postAdministrador = async(req, res = response ) => {
   try {
-    const { Estado , Password , ...body } = req.body;
+    const { Estado , ...body } = req.body;
     const administradorDB = await Administrador.findOne({ Nombre: body.Nombre });
     const emailDB = await Administrador.findOne({ Email: body.Email });
     if ( administradorDB && emailDB ) {

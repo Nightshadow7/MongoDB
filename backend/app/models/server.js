@@ -2,12 +2,15 @@ import express from "express";
 import conectarDB from "./../../config/mongo.js";
 import allRoutes from "../routes/index.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+
 // import { createEmpresa, createRoles } from "../libs/initialSetUp.js";
 
 class Server {
     constructor(){
         this.port = process.env.PORT;
         this.app = express();
+        this.app.use(cookieParser());
         this.routesV1 = '/api';
         // this.initialSetUp();
         this.middlewares();

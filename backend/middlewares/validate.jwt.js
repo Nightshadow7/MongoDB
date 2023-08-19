@@ -1,34 +1,51 @@
-import {response , request} from 'express';
+import { response, request } from 'express';
 import jwt from 'jsonwebtoken';
 import Usuario from './../app/models/Usuario.js';
-//cambiar a psicologas, admin y ᄃΉЯӨПӨƧ
-export const validateJWT = async(  req = request, res = response, next) => {
-  const token = req.header('x-api-token-jwt');
-  if ( !token ) {
+import Administrador from '../app/models/Administrador.js';
+
+const validateJWT = async (req = request, res = response, next, role) => {
+  const { token } = req.cookies;
+
+  if (!token) {
     return res.status(401).json({
-      msg: 'No hay token en la petición'
+      msg: 'No hay token en la petición',
     });
-  };
+  }
+
   try {
-    const {uid} = jwt.verify( token, process.env.SECRET_OR_PRIVATE_KEY );
-    const usuario = await Usuario.findById( uid );
-    if( !usuario ) {
-      return res.status(401).json({
-        msg: 'Token no válido - usuario no existe DB'
-      })
+    const { uid } = jwt.verify(token, process.env.SECRET_OR_PRIVATE_KEY);
+
+    let userModel;
+    if (role === 'Usuario') {
+      userModel = Usuario;
+    } else if (role === 'Cronos') {
+      userModel = Administrador;
     };
-    if ( usuario.estado ) {
+    const user = await userModel.findById(uid);
+    if (!user) {
       return res.status(401).json({
-        msg: 'Token no válido - usuario con estado: false'
+        msg: `Token no válido - ${role} no existe en la DB`,
       });
     };
-    req.usuario = usuario; 
-    console.log("req usuario en validate" , req.usuario);
+    if (user.Estado) {
+      return res.status(401).json({
+        msg: `Token no válido - ${role} con estado: false`,
+      });
+    };
+    req[role] = user;
+    console.log(`req ${role} en validate`, req[role]);
     next();
   } catch (error) {
     console.log(error);
     res.status(401).json({
-      msg: 'Token no válido'
+      msg: 'Token no válido',
     });
   };
+};
+
+export const validateUserJWT = async (req = request, res = response, next) => {
+  validateJWT(req, res, next, 'Usuario');
+};
+export const validateAdminJWT = async (req = request, res = response, next) => {
+  validateJWT(req, res, next, 'Cronos');
 };
