@@ -18,7 +18,7 @@ router.get(`${pathCheese}:id`, [
 router.post(`${pathCheese}`, [ 
   validateJWT, 
   check('Nombre','El nombre es obligatorio').not().isEmpty(),
-  check('Categoria' , 'No es un id de  Mongo'),
+  check('Categoria' , 'No es un id de  Mongo').isMongoId(),
   check('Categoria').custom( categoriaExistById),
   validateDocuments
 ] ,cheesesControllers.postCheese);

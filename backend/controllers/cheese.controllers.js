@@ -27,7 +27,7 @@ export const getCheeses = async (req, res = response) => {
 
 export const getOneCheese = async (req, res = response) => {
     try {
-      const { id } = re.params;
+      const { id } = req.params;
       const oneCheese = await Cheese.findById( id )
         .populate('Usuario', 'Nombre ')
         .populate('Categoria', 'Nombre')
@@ -50,7 +50,6 @@ export const postCheese = async(req, res = response) => {
       ...body,
       Nombre: body.Nombre.toUpperCase(),
       Usuario: req.usuario._id,
-
     };
     const cheese = new Cheese( data );
     await cheese.save();

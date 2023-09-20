@@ -2,23 +2,14 @@ import express from 'express';
 import cors from 'cors';
 import DBConnection from './../database/config.js';
 import fileUpload from 'express-fileupload';
-import authRouter from "../routes/auth.routes.js";
-import searchRouter from "../routes/search.routes.js";
-import usuariosRouter from "../routes/usuario.routes.js";
-import categoriasRouter from "./../routes/categoria.routes.js";
-import cheesesRouter from './../routes/cheeses.routes.js';
-import uploadsRouter from './../routes/upload.routes.js';
+import allRoutes from './../routes/index.js';
 class Server{
   constructor(){
-    this.app = express();
-
     this.port = process.env.port
-    
-    //middlewares
+    this.app = express();
+    this.routesV1 = '/api'
     this.middlewares();
-    //Conectar a Base de Datos MongoDB
     this.connectDB();
-    //Routing
     this.routes();
   };
 
@@ -27,12 +18,8 @@ class Server{
   };
 
   middlewares () {
-    //Cors
-    this.app.use(cors());
-
-    //leer y parsear JSON en BODY
     this.app.use(express.json());
-
+    this.app.use(cors());
     //public Directory
     this.app.use(express.static('public'));
 
@@ -44,12 +31,7 @@ class Server{
   };
 
   routes(){
-    this.app.use(authRouter);
-    this.app.use(searchRouter);
-    this.app.use(usuariosRouter);
-    this.app.use(categoriasRouter);
-    this.app.use(cheesesRouter);
-    this.app.use(uploadsRouter);
+    this.app.use(this.routesV1, allRoutes)
   };
 
   listen(){
